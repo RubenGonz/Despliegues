@@ -6,6 +6,6 @@ Este repositorio estará dedicado a la explicación del uso de esta herramienta 
 
 (Imagen)
 
-Lo rpimero que veremos sobre este software será su instalación y configuración en nuestros equipos, que será el entorno donde trabajaremos ya que para trabajar con Git solo nos hace falta una terminal.
+Lo primero que veremos sobre este software será su instalación y configuración en nuestros equipos, que será el entorno donde trabajaremos ya que para trabajar con Git solo nos hace falta una terminal.
 
-(Enlace)
+- [Instalación y configuración de Git](https://github.com/RubenGonz/Git/blob/main/Instalacion%20de%20Git.md)
