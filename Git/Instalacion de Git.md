@@ -1,4 +1,4 @@
-﻿﻿# Instalación de Git
+# Instalación de Git
 
 <div align="center">
     <img src="../Imágenes/InstalaciónDeGit/PortadaGit.png"/>
