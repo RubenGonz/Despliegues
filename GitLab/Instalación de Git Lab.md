@@ -6,12 +6,12 @@
 
 ## Índice
 
-- ¿Qué es?
-- Prerrequisitos de la instalación
-- Instalación en local
-- Instalación de paquetes adicionales
-- Instalación de GitLab
-- Acceso
+- [¿Qué es?](https://github.com/RubenGonz/Despliegues/blob/main/GitLab/Instalaci%C3%B3n%20de%20Git%20Lab.md#qu%C3%A9-es)
+- [Prerrequisitos de la instalación](https://github.com/RubenGonz/Despliegues/blob/main/GitLab/Instalaci%C3%B3n%20de%20Git%20Lab.md#prerrequisitos-de-la-instalaci%C3%B3n)
+- [Instalación en local](https://github.com/RubenGonz/Despliegues/blob/main/GitLab/Instalaci%C3%B3n%20de%20Git%20Lab.md#instalaci%C3%B3n-en-local)
+- [Instalación de paquetes adicionales](https://github.com/RubenGonz/Despliegues/blob/main/GitLab/Instalaci%C3%B3n%20de%20Git%20Lab.md#instalaci%C3%B3n-de-paquetes-adicionales)
+- [Instalación de GitLab](https://github.com/RubenGonz/Despliegues/blob/main/GitLab/Instalaci%C3%B3n%20de%20Git%20Lab.md#instalaci%C3%B3n-de-gitlab)
+- [Acceso](https://github.com/RubenGonz/Despliegues/blob/main/GitLab/Instalaci%C3%B3n%20de%20Git%20Lab.md#acceso)
 
 ---
 
