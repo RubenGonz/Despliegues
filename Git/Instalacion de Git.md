@@ -1,7 +1,7 @@
 ﻿﻿# Instalación de Git
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/PortadaGit.png"/>
+    <img src="../Imágenes/Instalación de Git/Portada.png"/>
 </div>
 
 ## Índice de la instalación
@@ -11,6 +11,8 @@
 - [Instalación de Git a través del sistema de paquetes](https://github.com/RubenGonz/Despliegues/blob/main/Git/Instalacion%20de%20Git.md#instalaci%C3%B3n-de-git-a-trav%C3%A9s-de-paquetes)
 - [Instalación de Git a través de la fuente](https://github.com/RubenGonz/Despliegues/blob/main/Git/Instalacion%20de%20Git.md#instalaci%C3%B3n-de-git-a-trav%C3%A9s-de-la-fuente)
 - [Configurar Git](https://github.com/RubenGonz/Despliegues/blob/main/Git/Instalacion%20de%20Git.md#configurar-git)
+
+---
 
 ## ¿Qué es Git?
 
@@ -27,7 +29,7 @@ git --version
 La salida de este comando nos enseñará la versión que persiste en nuestro sistema. Sin embargo si no hay ninguna versión instalada te saldrá un mensaje similar a este:
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/VersionGit.png"/>
+    <img src="../Imágenes/Instalación de Git/VersionGit.png"/>
 </div>
 
 ---
@@ -45,7 +47,7 @@ sudo apt update
 Aquí te pedirá la contraseña de administrador donde tras colocarla y darle a "Enter "empezaría el proceso, dandonos una salida similar a:
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/ActualizarPaquetes.png"/>
+    <img src="../Imágenes/Instalación de Git/ActualizarPaquetes.png"/>
 </div>
 
 Una vez este proceso termine lo siguiente sería la propia instalación de git usando los paquetes actualizados. Para iniciar la instalación usaremos:
@@ -57,7 +59,7 @@ sudo apt install git
 Tras escribir el comando empezará a cargar y pedirá confirmación, por lo que tendríamos que escribir "S" cuando nos lo pida y tras unos segundos, la instalación daría comienzo y en poco terminaría.
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/InstalaciónGit.png"/>
+    <img src="../Imágenes/Instalación de Git/InstalaciónGit.png"/>
 </div>
 
 La manera de comprobar si realmente se ha instalado con éxito es usando el comando comentado en el primer punto:
@@ -69,7 +71,7 @@ git --version
 Si lo hemos ejecutado todo correctamente la salida del comando esta vez sería:
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/VersionPaquetes.png"/>
+    <img src="../Imágenes/Instalación de Git/VersionPaquetes.png"/>
 </div>
 
 ---
@@ -89,7 +91,7 @@ sudo apt update
 Te volverá a pedir la contraseña de administrador y tras colocarla empezará el proceso y veremos:
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/ActualizarPaquetes.png"/>
+    <img src="../Imágenes/Instalación de Git/ActualizarPaquetes.png"/>
 </div>
 
 También necesitaremos otro software que se encuentra en el sistema de paquetes para poder instalarnos posteriormente la versión de git elegida por nosotros. Para instalarnos este software solo sería necesario poner en la terminal el comando:
@@ -101,7 +103,7 @@ sudo apt install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext c
 El proceso tendría un aspecto similar a:
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/SoftwareAdicional.png"/>
+    <img src="../Imágenes/Instalación de Git/SoftwareAdicional.png"/>
 </div>
 
 Una vez terminado lo siguiente sería la propia instalación de Git. Para ello lo primero sería la creación de una carpeta temporal usando:
@@ -117,7 +119,7 @@ cd tmp
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/CrearCarpetaTmp.png"/>
+    <img src="../Imágenes/Instalación de Git/CrearCarpetaTmp.png"/>
 </div>
 
 Ahora tendremos que buscar la versión de git que queramos instalar en nuestro sistema.
@@ -127,7 +129,7 @@ Para ello accederemos a este enlace donde podemos ver todas las versiones que ha
 [Enlace con las versiones disponibles](https://mirrors.edge.kernel.org/pub/software/scm/git/)
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/WebVersionesGit.png"/>
+    <img src="../Imágenes/Instalación de Git/WebVersionesGit.png"/>
 </div>
 
 Una vez hemos elegido la versión que vamos a utilizar tendremos que descargarla y enviar el archivo a git.tar.gz. Por ello ello usaremos la funcionalidad curl.
@@ -139,7 +141,7 @@ sudo apt install curl # version 7.68.0-1ubuntu2.7
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/InstalaciónCurl.png"/>
+    <img src="../Imágenes/Instalación de Git/InstalaciónCurl.png"/>
 </div>
 
 Ahora ya podremos bajarnos la version usando el comando:
@@ -155,7 +157,7 @@ curl -o git.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/InstalaciónGitFuente.png"/>
+    <img src="../Imágenes/Instalación de Git/InstalaciónGitFuente.png"/>
 </div>
 
 Y posteriormente a ello descomprimir el archivo usando:
@@ -165,7 +167,7 @@ tar -zxf git.tar.gz
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/DescomprimirArchivo.png"/>
+    <img src="../Imágenes/Instalación de Git/DescomprimirArchivo.png"/>
 </div>
 
 Ahora que ya lo tenemos descomprimido, podemos ir al directorio creado usando el comando cd.
@@ -181,7 +183,7 @@ cd git-2.29.3
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/EntrarGit.png"/>
+    <img src="../Imágenes/Instalación de Git/EntrarGit.png"/>
 </div>
 
 Dentro de esta carpeta lo que tendríamos que hacer es crear e instalar el paquete usando:
@@ -191,7 +193,7 @@ make prefix=/usr/local all
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/CrearPaquete.png"/>
+    <img src="../Imágenes/Instalación de Git/CrearPaquete.png"/>
 </div>
 
 ```console
@@ -199,7 +201,7 @@ sudo make prefix=/usr/local install
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/InstalarPaquete.png"/>
+    <img src="../Imágenes/Instalación de Git/InstalarPaquete.png"/>
 </div>
 
 Para terminar nos faltaría usar el comando:
@@ -209,13 +211,13 @@ exec bash
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/CrearPaquete.png"/>
+    <img src="../Imágenes/Instalación de Git/CrearPaquete.png"/>
 </div>
 
 Y ya tendríamos nuestra versión elegida instalada y funcionando en el sistema y para comprobarlo podemos usar el comando comentado en el primer punto del índice donde la salida que veríamos sería similar a:
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/VersionFuente.png"/>
+    <img src="../Imágenes/Instalación de Git/VersionFuente.png"/>
 </div>
 
 ---
@@ -228,14 +230,11 @@ Para introducir nuestros datos tenemos los comandos:
 
 ```console
 git config --global user.name (nuestro usuario)
-```
-
-```console
 git config --global user.email (nuestro correo)
 ```
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/ConfgurarGit.png"/>
+    <img src="../Imágenes/Instalación de Git/ConfgurarGit.png"/>
 </div>
 
 Con estos dos comandos ya nos podríamos validar con git. Para comprobar que lo hemos hecho correctamente podemos usar el comando:
@@ -247,7 +246,7 @@ git config --list
 Que nos da la información sobre nuestra configuración actual de Git en el sistema, por ejemplo la salida en mi caso es:
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/ConfiguraciónGit.png"/>
+    <img src="../Imágenes/Instalación de Git/ConfiguraciónGit.png"/>
 </div>
 
 Si con la primera forma no te encuentras cómodo también puedes editar el fichero donde se almacena tu configuración de Git usando uno de los editores de texto que da el sistema como puede ser nano:
@@ -259,7 +258,7 @@ nano ~/.gitconfig
 E introducir después los datos correspondientes a tu identidad como en el ejemplo:
 
 <div align="center">
-    <img src="../Imágenes/InstalaciónDeGit/EditarConfiguración.png"/>
+    <img src="../Imágenes/Instalación de Git/EditarConfiguración.png"/>
 </div>
 
 Después tendremos que salir de nano usando Ctrl + X, guardando y tendríamos Git configurado.
