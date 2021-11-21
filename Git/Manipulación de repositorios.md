@@ -6,13 +6,13 @@
 
 ## Índice
 
-- Requisitos
-- Configuración
-- Creación de un repositorio
-- Comprobar el estado de un repositorio
-- Realización de commits
-- Modificación de un fichero
-- Historial
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Git/Manipulaci%C3%B3n%20de%20repositorios.md#requisitos)
+- [Configuración](https://github.com/RubenGonz/Despliegues/blob/main/Git/Manipulaci%C3%B3n%20de%20repositorios.md#configuraci%C3%B3n)
+- [Creación de un repositorio](https://github.com/RubenGonz/Despliegues/blob/main/Git/Manipulaci%C3%B3n%20de%20repositorios.md#creaci%C3%B3n-de-un-repositorio)
+- [Comprobar el estado de un repositorio](https://github.com/RubenGonz/Despliegues/blob/main/Git/Manipulaci%C3%B3n%20de%20repositorios.md#comprobar-el-estado-de-un-repositorio)
+- [Realización de commits](https://github.com/RubenGonz/Despliegues/blob/main/Git/Manipulaci%C3%B3n%20de%20repositorios.md#realizaci%C3%B3n-de-commits)
+- [Modificación de un fichero](https://github.com/RubenGonz/Despliegues/blob/main/Git/Manipulaci%C3%B3n%20de%20repositorios.md#modificaci%C3%B3n-de-un-fichero)
+- [Historial](https://github.com/RubenGonz/Despliegues/blob/main/Git/Manipulaci%C3%B3n%20de%20repositorios.md#historial)
 
 ---
 
