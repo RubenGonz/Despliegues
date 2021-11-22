@@ -6,10 +6,10 @@
 
 ## Índice
 
-- Actualizar paquetes
-- PHP para Apache
-- PHP para Nginx
-- Probar PHP
+- [Actualizar paquetes](https://github.com/RubenGonz/Despliegues/blob/main/PHP/Instalacion%20de%20PHP.md#actualizar-paquetes)
+- [PHP para Apache](https://github.com/RubenGonz/Despliegues/blob/main/PHP/Instalacion%20de%20PHP.md#php-para-apache)
+- [PHP para Nginx](https://github.com/RubenGonz/Despliegues/blob/main/PHP/Instalacion%20de%20PHP.md#php-para-nginx)
+- [Probar PHP](https://github.com/RubenGonz/Despliegues/blob/main/PHP/Instalacion%20de%20PHP.md#probar-php)
 
 ---
 
