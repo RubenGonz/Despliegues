@@ -6,14 +6,14 @@
 
 ## Índice
 
-- Introducción
-- Requisitos
-- Instalación
-- Configuración firewall
-- Comprobar estado del servidor
-- Administrar proceso
-- Configurar bloques de servidor
-- Archivos y directorios importantes
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/Instalaci%C3%B3n%20de%20Nginx/Instalaci%C3%B3n%20de%20Nginx.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Instalaci%C3%B3n%20de%20Nginx/Instalaci%C3%B3n%20de%20Nginx.md#requisitos)
+- [Instalación](https://github.com/RubenGonz/Despliegues/blob/main/Instalaci%C3%B3n%20de%20Nginx/Instalaci%C3%B3n%20de%20Nginx.md#instalaci%C3%B3n)
+- [Configuración firewall](https://github.com/RubenGonz/Despliegues/blob/main/Instalaci%C3%B3n%20de%20Nginx/Instalaci%C3%B3n%20de%20Nginx.md#configuraci%C3%B3n-firewall)
+- [Comprobar estado del servidor](https://github.com/RubenGonz/Despliegues/blob/main/Instalaci%C3%B3n%20de%20Nginx/Instalaci%C3%B3n%20de%20Nginx.md#comprobar-estado-del-servidor)
+- [Administrar proceso](https://github.com/RubenGonz/Despliegues/blob/main/Instalaci%C3%B3n%20de%20Nginx/Instalaci%C3%B3n%20de%20Nginx.md#administrar-proceso)
+- [Configurar bloques de servidor](https://github.com/RubenGonz/Despliegues/blob/main/Instalaci%C3%B3n%20de%20Nginx/Instalaci%C3%B3n%20de%20Nginx.md#configurar-bloques-de-servidor)
+- [Archivos y directorios importantes](https://github.com/RubenGonz/Despliegues/blob/main/Instalaci%C3%B3n%20de%20Nginx/Instalaci%C3%B3n%20de%20Nginx.md#archivos-y-directorios-importantes)
 
 ---
 
