@@ -271,7 +271,7 @@ sudo ufw allow 8084/tcp
 Para acceder a WildFly únicamente necesitaremos un navegador. Dentro del url del navegador tendremos que escribir nuestro localhost pero usando el puerto adecuado. La salida en pantalla sería similar a:
 
 <div align="center">
-    <img src="../Imágenes/Instalación de WildFly/LocalHost.png"/>
+    <img src="../Imágenes/Instalación de WildFly/Localhost.png"/>
 </div>
 
 ---
