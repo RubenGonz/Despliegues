@@ -229,7 +229,7 @@ Al crear este nuevo bloque dedicado a nuestro dominio podemos aprovechar mejor l
 Otra cosa que tenemos que hacer es modificar el archivo hosts para añadir nuestro dominio, esto lo haremos con:
 
 ```console
-sudo nano /etc/hosts/
+sudo nano /etc/hosts
 ```
 
 <div align="center">
