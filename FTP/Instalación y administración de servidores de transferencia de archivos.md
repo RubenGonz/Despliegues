@@ -6,14 +6,14 @@
 
 ## Índice
 
-- [Introducción]()
-- [Requisitos]()
-- [Instalación de FTP]()
-- [Comprobación del servicio]()
-- [Configurar el servidor FTP]()
-- [Modo Pasivo]()
-- [Verificación de acceso]()
-- [Seguridad TLS]()
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos.md#introducci%C3%B3n)
+- [Instalación de FTP](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos.md#instalaci%C3%B3n-de-ftp)
+- [Comprobación del servicio](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos.md#comprobaci%C3%B3n-del-servicio)
+- [Configurar el servidor FTP](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos.md#configurar-el-servidor-ftp)
+- [Modo Pasivo](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos.md#modo-pasivo)
+- [Verificación de acceso](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos.md#verificaci%C3%B3n-de-acceso)
+- [Seguridad TLS](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos.md#seguridad-tls)
 
 ---
 
