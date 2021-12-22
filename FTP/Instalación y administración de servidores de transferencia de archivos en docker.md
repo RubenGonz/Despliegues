@@ -6,13 +6,13 @@
 
 ## Índice
 
-- [Introducción]()
-- [Requisitos]()
-- [Buscar imagenes]()
-- [Usar la imagen]()
-- [Comprobar la imagen]()
-- [Configurar home de un usuario]()
-- [Configurar home de varios usuarios]()
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos%20en%20docker.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos%20en%20docker.md#requisitos)
+- [Buscar imagenes](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos%20en%20docker.md#buscar-imagenes)
+- [Usar la imagen](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos%20en%20docker.md#usar-la-imagen)
+- [Comprobar la imagen](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos%20en%20docker.md#comprobar-la-imagen)
+- [Configurar home de un usuario](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos%20en%20docker.md#configurar-home-de-un-usuario)
+- [Configurar home de varios usuarios](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Instalaci%C3%B3n%20y%20administraci%C3%B3n%20de%20servidores%20de%20transferencia%20de%20archivos%20en%20docker.md#configurar-home-de-varios-usuarios)
 
 ---
 
