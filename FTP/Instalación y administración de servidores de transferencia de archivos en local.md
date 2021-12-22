@@ -1,7 +1,7 @@
-# Instalación y administración de servidores de transferencia de archivos
+# Instalación y administración de servidores de transferencia de archivos en local
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/Portada.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/Portada.png"/>
 </div>
 
 ## Índice
@@ -38,7 +38,7 @@ sudo apt update
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/ActualizarPaquetes.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/ActualizarPaquetes.png"/>
 </div>
 
 Y ahora que ya tenemos los paquetes actualizados lo siguiente será instalarlo usando:
@@ -50,7 +50,7 @@ sudo apt install -y vsftpd
 Donde veremos:
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/Instalación.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/Instalación.png"/>
 </div>
 
 Ahora que ya lo tenemos en nuestro sistema lo siguiente que haremos será permitir el acceso a los puertos estandar de FTP y el puerto de datos del mismo protocolo. Solo necesitaremos hacer:
@@ -61,7 +61,7 @@ sudo ufw allow ftp-data
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/PermitirAcceso.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/PermitirAcceso.png"/>
 </div>
 
 ---
@@ -75,7 +75,7 @@ systemctl status vsftpd
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/ComprobarServicio.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/ComprobarServicio.png"/>
 </div>
 
 ---
@@ -91,7 +91,7 @@ sudo apt install filezilla
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/InstalaciónFirezilla.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/InstalaciónFirezilla.png"/>
 </div>
 
 Ahora que ya lo tenemos haremos unas cuantas configuraciones:
@@ -109,7 +109,7 @@ sudo nano /etc/vsftpd.conf
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/editarConf.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/editarConf.png"/>
 </div>
 
 Añadiendo al final del fichero:
@@ -121,7 +121,7 @@ pasv_max_port=30050
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/ContenidoConf.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/ContenidoConf.png"/>
 </div>
 
 Donde estamos indicando el rango de puertos disponibles que mas nos interese.
@@ -133,7 +133,7 @@ sudo systemctl reload vsftpd
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/recargarServicio.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/recargarServicio.png"/>
 </div>
 
 Y posteriormente permitir acceso al rango de puertos que decidimos anteriormente.
@@ -143,7 +143,7 @@ sudo ufw allow 30000:30050/tcp
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/permitirPuertos.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/permitirPuertos.png"/>
 </div>
 
 Ahora cuando queramos usar el modo pasivo lo unico que tendremos que hacer es usar el siguiente comando despues de la autenticación: 
@@ -173,7 +173,7 @@ Sin embargo si todavía quieres mantener el acceso a los usuarios locales puedes
 Quedando el archivo:
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/ContenidoAcceso.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/ContenidoAcceso.png"/>
 </div>
 
 Otra característica de la configuración bastante reseñable es restringir a los usuarios para que solo puedan acceder a sus directorios personales debido a que por defecto un usuario normal puede acceder a toda la red de directorios.
@@ -193,7 +193,7 @@ allow_writeable_chroot=YES
 Debido a que sino podría haber problemas con directorios esenciales del sistema.
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/AccesoUsuarios.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/AccesoUsuarios.png"/>
 </div>
 
 ---
@@ -222,7 +222,7 @@ Common Name (e.g. server FQDN or YOUR name) []:daw.dpl
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/Certificado.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/Certificado.png"/>
 </div>
 
 Ahora lo que haremos será volver a modificar nuestro fichero de configuración donde buscaremos:
@@ -242,7 +242,7 @@ ssl_enable=YES
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/certificadoConf.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/certificadoConf.png"/>
 </div>
 
 Con esto habremos cambiado las rutas del certificado y la clave privada.
@@ -254,5 +254,5 @@ sudo systemctl restart vsftpd
 ```
 
 <div align="center">
-    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos/ReiniciarServicio.png"/>
+    <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/ReiniciarServicio.png"/>
 </div>
