@@ -6,12 +6,12 @@
 
 ## Índice
 
-- [Introducción]()
-- [Requisitos]()
-- [Estructura de archivos]()
-- [Docker-compose.yml]()
-- [Dominio local]()
-- [Comprobación del servicio]()
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Construcci%C3%B3n%20de%20un%20servicio%20de%20una%20empresa.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Construcci%C3%B3n%20de%20un%20servicio%20de%20una%20empresa.md#requisitos)
+- [Estructura de archivos](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Construcci%C3%B3n%20de%20un%20servicio%20de%20una%20empresa.md#estructura-de-archivos)
+- [Docker-compose.yml](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Construcci%C3%B3n%20de%20un%20servicio%20de%20una%20empresa.md#docker-composeyml)
+- [Dominio local](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Construcci%C3%B3n%20de%20un%20servicio%20de%20una%20empresa.md#dominio-local)
+- [Comprobación del servicio](https://github.com/RubenGonz/Despliegues/blob/main/FTP/Construcci%C3%B3n%20de%20un%20servicio%20de%20una%20empresa.md#comprobaci%C3%B3n-del-servicio)
 
 ---
 
@@ -67,33 +67,96 @@ Donde podremos ver que tenemos una carpeta dedicada a nuestra base de datos, una
 
 En nuestro archivo script.sql tendremos la siguiente información:
 
-<div align="center">
-    <img src="../Imágenes/Construcción de un servicio de una empresa/Script.png"/>
-</div>
+```console
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+CREATE TABLE `Blog` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `Blog` VALUES 
+  (1, 'Articulos Java'), 
+  (2, 'Articulos Php'), 
+  (3, 'Articulos Phyton'), 
+  (4, 'Articulos JavaScript');
+```
 
 Donde tendremos la creación de nuestra tabla con unas cuantas inserciones.
 
 Después dentro de nuestra carpeta de dockerfiles tendremos el archivo de configuración de nuestro apache que será el apache.conf que tendrá:
 
-<div align="center">
-    <img src="../Imágenes/Construcción de un servicio de una empresa/ApacheConf.png"/>
-</div>
+```console
+<VirtualHost *:80>
+    ServerName  rubengrsystem.com
+    ServerAlias  www.rubengrsystem.com
+    ServerAdmin ruben30303030@gmail.com
+    
+    DocumentRoot /var/www/html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    Alias "/errors" "/var/www/html/errors"
+    ErrorDocument 404 /errors/error404.html
+    
+    Alias "/home" "/var/www/html/index.php"
+    RedirectMatch ^/$ /home
+
+    ProxyPreserveHost On
+    <Proxy *>
+        Order allow,deny
+        Allow from all
+    </Proxy>
+
+    ProxyPass /phpmyadmin/ http://phpmyadmin:80/
+    ProxyPassReverse /phpmyadmin/ http://phpmyadmin:80/
+
+    RedirectMatch ^/phpmyadmin$ /phpmyadmin/
+
+    ProxyPass /subdominio/ sftp://localhost:2222/
+    ProxyPassReverse /subdominio/ sftp://localhost:2222/
+    
+    RedirectMatch ^/subdominio$ /subdominio/
+</VirtualHost>
+```
 
 Donde le indicaremos información sobre nuestro dominio, algunos alias y redirecciones, la salida del error controlado y el proxy para el uso de PhpMyAdmin y el servicio de sftp.
 
 El el Dockerfile tendremos:
 
-<div align="center">
-    <img src="../Imágenes/Construcción de un servicio de una empresa/Dockerfile.png"/>
-</div>
+```console
+FROM php:8.0.0-apache
+ARG DEBIAN_FRONTEND=noninteractive
+RUN docker-php-ext-install mysqli
+RUN apt-get update \
+   && apt-get install -y libzip-dev \
+   && apt-get install -y zlib1g-dev \
+   && rm -rf /var/lib/apt/lists/* \
+   && docker-php-ext-install zip
+   
+RUN a2enmod rewrite
+RUN a2dissite 000-default.conf
+ADD ./apache.conf /etc/apache2/sites-available
+RUN a2ensite apache.conf
+RUN a2enmod proxy && a2enmod proxy_http && a2enmod proxy_balancer && a2enmod lbmethod_byrequests
+```
 
 Que será donde habilitaremos el uso de php en nuestra web y permitiremos el uso del proxy e indicaremos que queremos usar el apache.conf como archivo de configuración.
 
 En nuestra carpeta de www únicamente tendremos una carpeta donde tendremos todas las páginas de errores controlados, una carpeta vacía que será la que actuará de subdominio y la que albergará los archivos del servicio sftp y el archivo index.php que tendrá nuestro home.
 
-<div align="center">
-    <img src="../Imágenes/Construcción de un servicio de una empresa/Home.png"/>
-</div>
+```console
+<html>
+<head>
+    <title>Ruben System</title>
+</head>
+
+<body>
+    <?php echo '<h1>Pagina home de Rubén González Rodríguez system </h1>'; ?>
+</body>
+</html>
+```
 
 ---
 
@@ -101,9 +164,52 @@ En nuestra carpeta de www únicamente tendremos una carpeta donde tendremos toda
 
 Por último tendremos nuestro archivo principal, el docker-compose.yml que tendrá:
 
-<div align="center">
-    <img src="../Imágenes/Construcción de un servicio de una empresa/Docker-compose.png"/>
-</div>
+```
+version: "3.7"
+
+services:
+    www:
+        build: ./dockerfiles/php
+        ports:
+            - "80:80"
+        volumes:
+            - ./www:/var/www/html
+        links:
+            - databases
+            - phpmyadmin
+            - sftp
+        networks:
+            - default
+    databases:
+        image: mysql:8.0
+        ports:
+            - "3306:3306"
+        command: 
+            --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_DATABASE: examen
+            MYSQL_USER: test
+            MYSQL_PASSWORD: test
+        volumes:
+            - ./bd:/docker-entrypoint-initdb.d
+        networks:
+            - default
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - databases:databases
+        ports:
+            - 8502:80
+        environment:
+            PMA_HOST: databases
+    sftp:
+        image: atmoz/sftp
+        volumes:
+            - ./www/subdominio:/var/www/html/subdominio
+        ports:
+            - "2222:22"
+        command: usuario:123456:2222
+```
 
 El primer servicio que tenemos es el de nuestra web donde le indicamos que use el dockerfile para generar su configuración, cual es la ruta raíz de nuestra web y a que está conectada.
 
@@ -125,9 +231,11 @@ sudo nano /etc/hosts
 
 Donde debemos incorporar junto a los alias que tengamos el nombre de nuestro dominio de esta manera:
 
-<div align="center">
-    <img src="../Imágenes/Construcción de un servicio de una empresa/EtcHosts.png"/>
-</div>
+```console
+127.0.0.1       localhost
+127.0.1.1       RubenGonz
+127.0.0.1       www.rubengrsystem.com rubengrsystem.com rubengrsystem
+```
 
 Ahora que ya lo tenemos todo deberemos acceder a nuestro directorio raíz y escribir:
 
