@@ -16,7 +16,7 @@
 
 ## Introducción
 
-En esta ocación lo que haremos será instalar la herramienta Jenkins en nuestro sistema Ubuntu 20.04, alojandola dentro de un dominio local que habremos creado en apache.
+En esta ocasión lo que haremos será instalar la herramienta Jenkins en nuestro sistema Ubuntu 20.04, alojando dentro de un dominio local que habremos creado en apache.
 
 ---
 
@@ -31,10 +31,10 @@ En el caso de no contar con Apache puedes hacer uso de:
 En el caso de no contar con la instalación de Java para instalarlo solo tendremos que actualizar el sistema de paquetes que nos proporciona linux:
 
 ```console
-sudo apt upate
+sudo apt update
 ```
 
-Posteiormente tendremos que buscar los paquetes openjdk con:
+Posteriormente tendremos que buscar los paquetes openjdk con:
 
 ```console
 sudo apt search openjdk
@@ -46,7 +46,7 @@ Elegir la opción que queramos, en mi caso:
 sudo apt install openjdk-11-jdk
 ```
 
-Una vez que termine el proceso comprobar que esta instalado viendo la salida del comando:
+Una vez que termine el proceso comprobar que está instalado viendo la salida del comando:
 
 ```console
 java -version
@@ -66,7 +66,7 @@ Para la creación de nuestro dominio local en apache lo primero que tendremos qu
 sudo mkdir -p /var/www/rubengric.com/public_html
 ```
 
-Despues cambiaremos la propiedad de este archivo al user www-data.
+Después cambiaremos la propiedad de este archivo al user www-data.
 
 ```console
 sudo chown -R www-data: /var/www/rubengric.com
@@ -147,7 +147,7 @@ Añadiendo:
 127.0.0.1       rubengric.com www.rubengric.com
 ```
 
-Y conprobamos que se despliega acuediendo a nuestro navegador y poniendo:
+Y comprobamos que se despliega acudiendo a nuestro navegador y poniendo:
 
 ```console
 http://rubengric.com
@@ -162,7 +162,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-Ahora ya podriamos usar el comando:
+Ahora ya podremos usar los comandos:
 
 ```console
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
@@ -175,8 +175,8 @@ curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
 
 ```console
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
 ```
 
 <div align="center">
@@ -199,7 +199,7 @@ sudo apt-get install jenkins
     <img src="../Imágenes/Instalación y configuración de Jenkins en Linux/InstalacionJenkins4.png"/>
 </div>
 
-Para comprobar que lo hemos instalado correctamente podriamos hacer:
+Para comprobar que lo hemos instalado correctamente podríamos hacer:
 
 ```console
 sudo systemctl daemon-reload
@@ -210,7 +210,7 @@ sudo systemctl status jenkins
     <img src="../Imágenes/Instalación y configuración de Jenkins en Linux/ComprobacionJenkins.png"/>
 </div>
 
-Para ver la interfaz gráfica podemos acceder al puerto 8080 a traveés del navegador con:
+Para ver la interfaz gráfica podemos acceder al puerto 8080 a través del navegador con:
 
 ```console
 http://localhost:8080
@@ -220,7 +220,7 @@ http://localhost:8080
     <img src="../Imágenes/Instalación y configuración de Jenkins en Linux/VistaJenkins.png"/>
 </div>
 
-Donde nos indicara que pongamos nuestra contraseña, esa se encontrará en la ruta de la imagen, es decir dentro de:
+Donde nos indicará que pongamos nuestra contraseña, esta se encontrará en la ruta de la imagen, es decir dentro de:
 
 ```console
 sudo nano /var/lib/jenkins/secrets/initialAdminPassword
@@ -234,7 +234,7 @@ Donde al acceder veremos nuestra contraseña, en mi caso:
 
 Copiaremos el contenido y lo pegaremos en el input que nos deja Jenkins en la pantalla del navegador.
 
-Ahora ya podriamos acceder a nuestro Jenkins, eligiendo que plugins instalar y posteriormente accediendo a la creacion del usuario Admin:
+Ahora ya podríamos acceder a nuestro Jenkins, eligiendo que plugins instalar y posteriormente accediendo a la creación del usuario Admin:
 
 <div align="center">
     <img src="../Imágenes/Instalación y configuración de Jenkins en Linux/LogJenkins.png"/>
@@ -246,7 +246,7 @@ Donde tras rellenar los datos nos mostrará una pantalla similar a la siguiente:
     <img src="../Imágenes/Instalación y configuración de Jenkins en Linux/RutaJenkins.png"/>
 </div>
 
-Esta pagina nos pedirá establecer la URL donde funcionará nuestro Jenkins. En nuestro caso le deberemos poner la de nuestro dominio:
+Esta página nos pedirá establecer la URL donde funcionará nuestro Jenkins. En nuestro caso le deberemos poner la de nuestro dominio:
 
 ```console
 http://rubengric.com
@@ -256,7 +256,7 @@ http://rubengric.com
 
 ## Comprobación final 
 
-Para comprobar que todo funcionacorrectamente lo que debería pasar es que al acceder a nuestro dominio, es decir a:
+Para comprobar que todo funciona correctamente lo que debería pasar es que al acceder a nuestro dominio, es decir a:
 
 ```console
 http://rubengric.com
@@ -280,4 +280,4 @@ Donde tras registrarnos no mostrará:
     <img src="../Imágenes/Instalación y configuración de Jenkins en Linux/JenkinsFinal.png"/>
 </div>
 
-Y con ello tendriamos acceso a la herramienta de Jenkins con nuestro dominio.
+Y con ello tendríamos acceso a la herramienta de Jenkins con nuestro dominio.
