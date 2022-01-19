@@ -203,6 +203,12 @@ http://jenkins.rubengr.com/
     <img src="../Imágenes/Instalación y configuración de Jenkins en Docker/VistaFinalDocker.png"/>
 </div>
 
+Para acceder a la contraseña lo haremos como si hubiesemos instalado en Linux accediendo a:
+
+```console
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
 ---
 
 ## Instalación de Jenkins con Docker-compose
@@ -224,11 +230,13 @@ USER root
 RUN apt-get -y update && apt-get install -y maven
 
 USER jenkins
-COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY Plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 ```
 
-En el fichero Plugins.txt tendremos todos los plugins que nos pondremos dentro de nuestra imagen Jenkins, en nuestro caso:
+Donde especificamos la imagen de la que partimos, que queremos instalar maven usando el usuario root y que queremos instalar los plugins del fichero que despues mostraremos con el usuario jenkins.
+
+El fichero que contendra los plugins será el Plugins.txt. En este fichero le podemos poner tantos plugins como queramos siempre que esten disponibles. En nuestro caso pondremos:
 
 ```
 ace-editor
@@ -307,8 +315,8 @@ Y por último nuestro fichero docker-compose.yml que será el que nos ayudará a
 version: '3'
 services:
   master:
-    build: jenkins
-    image: imagenJenkins
+    build: ./jenkins
+    image: imagenjenkins
     restart: unless-stopped
     hostname: jenkins
     ports:
@@ -321,3 +329,42 @@ volumes:
   jenkins_home:
 ```
 
+Ahora que ya tenemos los archivos con su configuración lo siguiente será ponernos sobre la carpeta padre de nuestro sistema de archivos desde una terminal y poner:
+
+```console
+sudo docker-compose up --build
+```
+
+Que nos arrancará el contenedor. Para comrpobar el funcionaniemto podriamos ir a:
+
+```
+http://localhost:8080
+```
+
+Que es donde tenemos alojado el contenedor o en su lugar a nuestro dominio que nos redirige a nuestro jenkins:
+
+```
+http://jenkins.rubengr.com/
+```
+
+<div align="center">
+    <img src="../Imágenes/Instalación y configuración de Jenkins en Docker/VistaFinalDockerCompose.png"/>
+</div>
+
+Para poder acceder a la contraseña del jenkins tendremos que buscarla dentro del contenedor creado. Por ello haremos:
+
+```console
+sudo docker ps -a
+```
+
+<div align="center">
+    <img src="../Imágenes/Instalación y configuración de Jenkins en Docker/ContenedoresDocker.png"/>
+</div>
+
+Cogeremos el nombre del contenedor qque habremos creado y hacemos:
+
+```console
+sudo docker exec -it instalacionjenkins_jenkins_1 cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+Donde la respuesta será nuestra contraseña. Y ahora sí tendriamos el Jenkins a modificar a nuestro gusto.
