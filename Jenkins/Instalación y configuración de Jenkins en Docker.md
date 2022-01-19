@@ -162,6 +162,10 @@ Una ves la hallamos encontrado pondremos docker pull y el nombre de nuestra imag
 sudo docker pull jenkins/jenkins:lts
 ```
 
+<div align="center">
+    <img src="../Imágenes/Instalación y configuración de Jenkins en Docker/DockerPull.png"/>
+</div>
+
 Para comprobar que tenemos la imagen podemos usar el comando:
 
 ```console
