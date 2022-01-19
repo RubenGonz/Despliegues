@@ -32,14 +32,14 @@ En el caso de no contar con la instalación de Docker podemos acceder a:
 
 - [Instalación de Docker](https://github.com/RubenGonz/Despliegues/blob/main/Docker/Instalaci%C3%B3n%20de%20Docker.md)
 
-Por último si no contamos con el docker-compose tendremos que actualizar nuesrto sistema de paquetes con:
+Por último si no contamos con el docker-compose tendremos que actualizar nuestro sistema de paquetes con:
 
 ```console
 sudo apt update
 sudo apt upgrade
 ```
 
-Y una vez terminado de actualizar tendriamos que ejecutar el comando:
+Y una vez terminado de actualizar tendríamos que ejecutar el comando:
 
 ```console
 sudo apt install docker-compose
@@ -118,7 +118,7 @@ Y hacer un enlace simbólico con:
 sudo ln -s /etc/apache2/sites-available/jenkins.rubengr.com.conf /etc/apache2/sites-enabled/
 ```
 
-Ahora reiniciaremos nuestro Apache con:
+Ahora reiniciamos nuestro Apache con:
 
 ```console
 sudo systemctl restart apache2
@@ -150,13 +150,13 @@ http://jenkins.rubengr.com
 
 ## Instalación de Jenkins con Docker
 
-Lo primero que haremos será descargarnos la imagen que querremos usar de Jenkins, para ello iremos a:
+Lo primero que haremos será descargarnos la imagen que queremos usar de Jenkins, para ello iremos a:
 
 ```
 https://hub.docker.com/
 ```
 
-Una ves la hallamos encontrado pondremos docker pull y el nombre de nuestra imagen en mi caso:
+Una vez la hayamos encontrado pondremos docker pull y el nombre de nuestra imagen en mi caso:
 
 ```console
 sudo docker pull jenkins/jenkins:lts
@@ -179,7 +179,7 @@ REPOSITORY        TAG       IMAGE ID       CREATED      SIZE
 jenkins/jenkins   lts       9aee0d53624f   7 days ago   441MB
 ```
 
-Ahora que ya tenemos nuestra imagen lo siguiente que haremos será usar un contenedor con esta imagen de docker en el puerto 8080. Para ello con anterioridad en mi caso creare una carpeta que será donde voy a establecer la ruta home de nuestro Jenkins. 
+Ahora que ya tenemos nuestra imagen lo siguiente que haremos será usar un contenedor con esta imagen de docker en el puerto 8080. Para ello con anterioridad en mi caso crearé una carpeta que será donde voy a establecer la ruta home de nuestro Jenkins. 
 
 ```console
 mkdir JenkinsHome
@@ -191,7 +191,7 @@ Ahora si, podemos arrancar el contenedor con:
 sudo docker run -p 8080:8080 -p 50000:50000 -v /home/rubengonz/JenkinsHome:/var/jenkins_home jenkins/jenkins:lts
 ```
 
-Donde para comprobar el funcionaniemto podriamos ir a:
+Donde para comprobar el funcionamiento podríamos ir a:
 
 ```
 http://localhost:8080
@@ -207,7 +207,7 @@ http://jenkins.rubengr.com/
     <img src="../Imágenes/Instalación y configuración de Jenkins en Docker/VistaFinalDocker.png"/>
 </div>
 
-Para acceder a la contraseña lo haremos como si hubiesemos instalado en Linux accediendo a:
+Para acceder a la contraseña lo haremos como si hubiésemos instalado en Linux accediendo a:
 
 ```console
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
@@ -219,7 +219,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 La otra manera alternativa a instalar en local y usar una imagen de docker en usar el docker compose y crear nuestra propia imagen y lanzar el contenedor a nuestro gusto.
 
-Lo primero que haremos será cear nuestro sistema de ficheros para el uso del dockercompose. Este tendrá la siguiente apariencia:
+Lo primero que haremos será crear nuestro sistema de ficheros para el uso del docker compose. Este tendrá la siguiente apariencia:
 
 <div align="center">
     <img src="../Imágenes/Instalación y configuración de Jenkins en Docker/SistemaFicheros.png"/>
@@ -238,9 +238,9 @@ COPY Plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 ```
 
-Donde especificamos la imagen de la que partimos, que queremos instalar maven usando el usuario root y que queremos instalar los plugins del fichero que despues mostraremos con el usuario jenkins.
+Donde especificamos la imagen de la que partimos, que queremos instalar maven usando el usuario root y que queremos instalar los plugins del fichero que después mostraremos con el usuario jenkins.
 
-El fichero que contendra los plugins será el Plugins.txt. En este fichero le podemos poner tantos plugins como queramos siempre que esten disponibles. En nuestro caso pondremos:
+El fichero que contendrá los plugins será el Plugins.txt. En este fichero le podemos poner tantos plugins como queramos siempre que estén disponibles. En nuestro caso pondremos:
 
 ```
 ace-editor
@@ -339,7 +339,7 @@ Ahora que ya tenemos los archivos con su configuración lo siguiente será poner
 sudo docker-compose up --build
 ```
 
-Que nos arrancará el contenedor. Para comrpobar el funcionaniemto podriamos ir a:
+Que nos arrancará el contenedor. Para comprobar el funcionamiento podríamos ir a:
 
 ```
 http://localhost:8080
@@ -365,10 +365,10 @@ sudo docker ps -a
     <img src="../Imágenes/Instalación y configuración de Jenkins en Docker/ContenedoresDocker.png"/>
 </div>
 
-Cogeremos el nombre del contenedor qque habremos creado y hacemos:
+Cogeremos el nombre del contenedor que habremos creado y hacemos:
 
 ```console
 sudo docker exec -it instalacionjenkins_jenkins_1 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-Donde la respuesta será nuestra contraseña. Y ahora sí tendriamos el Jenkins a modificar a nuestro gusto.
+Donde la respuesta será nuestra contraseña. Y ahora sí tendríamos el Jenkins a modificar a nuestro gusto.
