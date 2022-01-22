@@ -6,21 +6,21 @@
 
 ## Índice
 
-- [Introducción]()
-- [Requisitos]()
-- [Que es un pipeline en Jenkins]()
-- [Sintaxis de los pipelines en Jenkins]()
-    - [Declarative]()
-    - [Scripted]()
-- [Creación de un Pipeline desde Jenkins]()
-- [Ejemplos de Pipelines]()
-    - [Java-Maven]()
-    - [Node]()
-    - [Ruby]()
-    - [Python]()
-    - [PHP]()
-    - [Go]()
-- [Vista general]()
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#requisitos)
+- [Que es un pipeline en Jenkins](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#que-es-un-pipeline-en-jenkins)
+- [Sintaxis de los pipelines en Jenkins](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#sintaxis-de-los-pipelines-en-jenkins)
+    - [Declarative](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#declarative)
+    - [Scripted](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#scripted)
+- [Creación de un Pipeline desde Jenkins](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#creaci%C3%B3n-de-un-pipeline-desde-jenkins)
+- [Ejemplos de Pipelines](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#ejemplos-de-pipelines)
+    - [Java-Maven](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#java-maven)
+    - [Node](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#node)
+    - [Ruby](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#ruby)
+    - [Python](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#python)
+    - [PHP](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#php)
+    - [Go](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#go)
+- [Vision general](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md#vision-general)
 
 ---
 
@@ -173,9 +173,9 @@ Ahora tendremos que guardar mandandonos a una pantalla como la siguiente:
 
 Posiblemente tengamos problemas debido a que:
 
-Alojandolo en docker/docker-compose: Nuestro Jenkins no reconoce docker en su sistema. 
+- Alojandolo en docker/docker-compose: Nuestro Jenkins no reconoce docker en su sistema. 
 
-Alojandolo en local: No tenemos los plugins de *Docker Pipeline* o *Docker plugin* y Jenkins no tiene permisos de Docker.
+- Alojandolo en local: No tenemos los plugins de *Docker Pipeline* o *Docker plugin* y Jenkins no tiene permisos de Docker.
 
 Para este segundo caso solo tendremos que dirijirnos a "Administrar Jenkins" desde el panel de control, posteriormente buscar la opción "Administrar Plugins", pulsar en "Todos los plugins" y desde aqui buscar e instalar los plugins normbrados. Posteriormente deberemos ejecutar en nuestra terminal:
 
@@ -229,6 +229,8 @@ pipeline {
 }
 ```
 
+Donde podremos ver:
+
 <div align="center">
     <img src="../Imágenes/Fundamentos de un Pipeline Jenkins/VersionMaven.png"/>
 </div>
@@ -249,6 +251,8 @@ pipeline {
     }
 }
 ```
+
+Donde podremos ver:
 
 <div align="center">
     <img src="../Imágenes/Fundamentos de un Pipeline Jenkins/VersionNode.png"/>
@@ -271,6 +275,8 @@ pipeline {
 }
 ```
 
+Donde podremos ver:
+
 <div align="center">
     <img src="../Imágenes/Fundamentos de un Pipeline Jenkins/VersionRuby.png"/>
 </div>
@@ -291,6 +297,8 @@ pipeline {
     }
 }
 ```
+
+Donde podremos ver:
 
 <div align="center">
     <img src="../Imágenes/Fundamentos de un Pipeline Jenkins/VersionPython.png"/>
@@ -313,6 +321,8 @@ pipeline {
 }
 ```
 
+Donde podremos ver:
+
 <div align="center">
     <img src="../Imágenes/Fundamentos de un Pipeline Jenkins/VersionPHP.png"/>
 </div>
@@ -332,6 +342,8 @@ pipeline {
 }
 ```
 
+Donde podremos ver:
+
 <div align="center">
     <img src="../Imágenes/Fundamentos de un Pipeline Jenkins/VersionGo.png"/>
 </div>
@@ -343,3 +355,5 @@ Para poder tener una vision general de todos nuestros pipelines podemos acceder 
 <div align="center">
     <img src="../Imágenes/Fundamentos de un Pipeline Jenkins/VisionGeneral.png"/>
 </div>
+
+Ahora ya podriamos tener un manejo básico de los Pipelines.
