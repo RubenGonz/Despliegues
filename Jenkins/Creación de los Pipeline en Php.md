@@ -15,11 +15,11 @@
 
 ## Introducción
 
-En esta ocación lo que haremos será usar un pipeline para comprobar el despliegue de un apache que cuente con php que habremos creado previamente en un repositorio de GitHub. Este contará con una parte donde contruiremos nuestra aplicación, una parte donde obtendremos la respuesta de si se ha desplegado o no correctamente y otra donde podremos eliminar o no, depende de nuestro gusto si queremos eliminar el contenedor de la aplicación tras su testeo.
+En esta ocasión lo que haremos será usar un pipeline para comprobar el despliegue de un apache que cuente con php que habremos creado previamente en un repositorio de GitHub. Este contará con una parte donde construiremos nuestra aplicación, una parte donde obtendremos la respuesta de si se ha desplegado o no correctamente y otra donde podremos eliminar o no, depende de nuestro gusto si queremos eliminar el contenedor de la aplicación tras su testeo.
 
 ## Requisitos
 
-Para la realización de esta práctica será necesario contar con Jenkins instalado en nuestro sistema. En el caso de no contar con él tienes a tu dispocición este enlace que te ayudará con la instalación.
+Para la realización de esta práctica será necesario contar con Jenkins instalado en nuestro sistema. En el caso de no contar con él tienes a tu disposición este enlace que te ayudará con la instalación.
 
 - [Instalación y configuración de Jenkins en Linux](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Instalaci%C3%B3n%20y%20configuraci%C3%B3n%20de%20Jenkins%20en%20Linux.md)
 
@@ -63,7 +63,7 @@ Donde tendremos una carpeta llamada __src__ que será la que contendrá la estru
 </html>
 ```
 
-Por otra parte y desde la raiz de nuestro proyecto crearemos nuestro __Jenkinfile__  que será el que contenga nuestro script:
+Por otra parte y desde la raíz de nuestro proyecto crearemos nuestro __Jenkinsfile__  que será el que contenga nuestro script:
 
 ```
 pipeline {
@@ -102,7 +102,7 @@ EXPOSE 80
 
 ## Configuración en Jenkins
 
-Ahora que ya tenemos nuestro proyecto en el repositorio nos dirigiremos a nuestro Jenkins donde iriamos a crearnos un nuevo pipeline.
+Ahora que ya tenemos nuestro proyecto en el repositorio nos dirigiremos a nuestro Jenkins donde iremos a crearnos un nuevo pipeline.
 
 Opuestamente a lo hecho anteriormente cuando nos dispongamos a colocar nuestro script en la configuración deberemos marcar la casilla de la imagen:
 
@@ -110,13 +110,13 @@ Opuestamente a lo hecho anteriormente cuando nos dispongamos a colocar nuestro s
     <img src="../Imágenes/Creación de los Pipeline en Php/ConfJenkins.png"/>
 </div>
 
-Ahora nos dirigiaremos al home del pipeline contruido, lo construiriamos y deberiamos tener una imagen similar a:
+Ahora nos dirigiremos al home del pipeline construido, lo construiriamos y deberíamos tener una imagen similar a:
 
 <div align="center">
     <img src="../Imágenes/Creación de los Pipeline en Php/SalidaTest.png"/>
 </div>
 
-Y en el caso de no haber puesto en el Jenkinsfile la opcion de borrar el contenedor tras el test tendriamos una salida como la siguiente en la web donde veriamos que neustro apache esta corriendo y que cuenta con php como se nos pedía:
+Y en el caso de no haber puesto en el Jenkinsfile la opción de borrar el contenedor tras el test tendríamos una salida como la siguiente en la web donde veríamos que nuestro apache está corriendo y que cuenta con php como se nos pedía:
 
 <div align="center">
     <img src="../Imágenes/Creación de los Pipeline en Php/SalidaWeb.png"/>
