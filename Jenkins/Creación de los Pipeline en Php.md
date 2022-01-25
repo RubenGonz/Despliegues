@@ -8,7 +8,7 @@
 
 - [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Creaci%C3%B3n%20de%20los%20Pipeline%20en%20Php.md#introducci%C3%B3n)
 - [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Creaci%C3%B3n%20de%20los%20Pipeline%20en%20Php.md#requisitos)
-- [Creación del repositorio ](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Creaci%C3%B3n%20de%20los%20Pipeline%20en%20Php.md#creaci%C3%B3n-del-repositorio)
+- [Creación del repositorio](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Creaci%C3%B3n%20de%20los%20Pipeline%20en%20Php.md#creaci%C3%B3n-del-repositorio)
 - [Configuración en Jenkins](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Creaci%C3%B3n%20de%20los%20Pipeline%20en%20Php.md#configuraci%C3%B3n-en-jenkins)
 
 ---
@@ -16,6 +16,8 @@
 ## Introducción
 
 En esta ocasión lo que haremos será usar un pipeline para comprobar el despliegue de un apache que cuente con php que habremos creado previamente en un repositorio de GitHub. Este contará con una parte donde construiremos nuestra aplicación, una parte donde obtendremos la respuesta de si se ha desplegado o no correctamente y otra donde podremos eliminar o no, depende de nuestro gusto si queremos eliminar el contenedor de la aplicación tras su testeo.
+
+---
 
 ## Requisitos
 
@@ -26,6 +28,8 @@ Para la realización de esta práctica será necesario contar con Jenkins instal
 Y a poder ser tener un manejo básico de como crear un pipeline en Jenkins, en su defecto puedes contar con este informe que te ayudará:
 
 - [Fundamentos de un Pipeline Jenkins](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Fundamentos%20de%20un%20Pipeline%20Jenkins.md)
+
+---
 
 ## Creación del repositorio 
 
@@ -99,6 +103,8 @@ FROM php:7.0-apache
 COPY src/ /var/www/html
 EXPOSE 80
 ```
+
+---
 
 ## Configuración en Jenkins
 
