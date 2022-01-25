@@ -8,19 +8,20 @@
 
 - [Introducción]()
 - [Requisitos]()
+- [Creación del repositorio ]()
+- [Configuración en Jenkins]()
 
 ---
 
 ## Introducción
 
-En esta ocación lo que haremos será usar 
+En esta ocación lo que haremos será usar un pipeline para comprobar el despliegue de un apache que cuente con php que habremos creado previamente en un repositorio de GitHub. Este contará con una parte donde contruiremos nuestra aplicación, una parte donde obtendremos la respuesta de si se ha desplegado o no correctamente y otra donde podremos eliminar o no, depende de nuestro gusto si queremos eliminar el contenedor de la aplicación tras su testeo.
 
 ## Requisitos
 
-Para la realización de esta práctica será necesario contar con Jenkins instalado en nuestro sistema. En el caso de no contar con ella tienes a tu dispocición estos enlaces que te ayudarán con la instalación.
+Para la realización de esta práctica será necesario contar con Jenkins instalado en nuestro sistema. En el caso de no contar con él tienes a tu dispocición este enlace que te ayudará con la instalación.
 
 - [Instalación y configuración de Jenkins en Linux](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Instalaci%C3%B3n%20y%20configuraci%C3%B3n%20de%20Jenkins%20en%20Linux.md)
-- [Instalación y configuración de Jenkins en Docker](https://github.com/RubenGonz/Despliegues/blob/main/Jenkins/Instalaci%C3%B3n%20y%20configuraci%C3%B3n%20de%20Jenkins%20en%20Docker.md)
 
 Y a poder ser tener un manejo básico de como crear un pipeline en Jenkins, en su defecto puedes contar con este informe que te ayudará:
 
@@ -40,7 +41,7 @@ Dentro de aqui crearemos una estructura de ficheros como la siguiente:
     <img src="../Imágenes/Creación de los Pipeline en Php/EstructuraFicheros.png"/>
 </div>
 
-Donde tendremos una carpeta llamada __src__ que será la que contendrá la estructura de nuestro proyecto. Como esto solo será un proyecto de prueba simplemente crearemos un fichero llamado __index-php__. Este contendrá:
+Donde tendremos una carpeta llamada __src__ que será la que contendrá la estructura de nuestro proyecto. Como esto solo será un proyecto de prueba simplemente crearemos un fichero llamado __index.php__. Este contendrá:
 
 ```
 <!DOCTYPE html>
@@ -65,7 +66,38 @@ Donde tendremos una carpeta llamada __src__ que será la que contendrá la estru
 Por otra parte y desde la raiz de nuestro proyecto crearemos nuestro __Jenkinfile__  que será el que contenga nuestro script:
 
 ```
+pipeline {
+    agent any
+    stages {
+        stage('construccion') {
+            steps {
+                sh 'docker build -t proyecto-php .'
+                sh 'docker run -d --rm -p 8085:80 --name ContenedorPrueba proyecto-php'
+            }
+        }
+        stage('testeo'){
+            steps{
+                sh 'wget http://localhost:8085/'
+            }
+        }
+//
+//      En el caso de querer borrar el contenedor tras testearlo pondremos:
+//
+//        stage('borarContenedor') {  
+//            steps {
+//                sh 'docker stop  ContenedorPrueba'  
+//            }
+//        }
+    }
+}
+```
 
+Y nuestro fichero __Dockerfile__ que será el que tendrá la creación de nuestra imagen:
+
+```
+FROM php:7.0-apache
+COPY src/ /var/www/html
+EXPOSE 80
 ```
 
 ## Configuración en Jenkins
@@ -76,4 +108,16 @@ Opuestamente a lo hecho anteriormente cuando nos dispongamos a colocar nuestro s
 
 <div align="center">
     <img src="../Imágenes/Creación de los Pipeline en Php/ConfJenkins.png"/>
+</div>
+
+Ahora nos dirigiaremos al home del pipeline contruido, lo construiriamos y deberiamos tener una imagen similar a:
+
+<div align="center">
+    <img src="../Imágenes/Creación de los Pipeline en Php/SalidaTest.png"/>
+</div>
+
+Y en el caso de no haber puesto en el Jenkinsfile la opcion de borrar el contenedor tras el test tendriamos una salida como la siguiente en la web donde veriamos que neustro apache esta corriendo y que cuenta con php como se nos pedía:
+
+<div align="center">
+    <img src="../Imágenes/Creación de los Pipeline en Php/SalidaWeb.png"/>
 </div>
