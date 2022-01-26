@@ -9,7 +9,7 @@
 - [Introducción]()
 - [Requisitos]()
 - [Creación del repositorio]()
-- [Creación del repositorio]()
+- [Configuración en Jenkins]()
 
 ---
 
@@ -40,7 +40,7 @@ Esta vez vamos a usar un proyecto que tendremos disponible en:
 Este contendrá la siguente estructura de ficheros:
 
 <div align="center">
-    <img src="../Imágenes/Creación de los Pipeline en Java/Portada.png"/>
+    <img src="../Imágenes/Creación de los Pipeline en Java/EstructuraFicheros.png"/>
 </div>
 
 Donde tendremos una __carpeta src__ que será la que contendrá nuestra aplicación en java, un __dockerfile__ que nos servirá para desplegar un tomcat, nuestro __jenkinsfile__ que testeará el despliegue de nuestra aplicación y el __pom.xml__ que tendrá la configuración, depedencias y plugins de neustra app.
@@ -113,7 +113,7 @@ pipeline {
         }
         stage('Test del despliegue') {
             steps {
-                sh 'grep Ruben | wget localhost:8082/app-web-ruben'
+                sh 'wget -q localhost:8082/app-web-ruben -O - | grep Ruben'
             }
         }
 //
@@ -198,4 +198,16 @@ Ahora ya tendriamos nuestro proyecto en GitHub y podriamos crear nuestra pipelin
 
 ---
 
-# Creación del repositorio
+## Configuración en Jenkins
+
+Ahora que ya tenemos nuestro proyecto en el repositorio nos dirigiremos a nuestro Jenkins donde iremos a crearnos un nuevo pipeline que se ejecutará desde nuestro GitHub, lo construiriamos y deberíamos tener una imagen similar a:
+
+<div align="center">
+    <img src="../Imágenes/Creación de los Pipeline en Java/SalidaTest.png"/>
+</div>
+
+Y en el caso de no haber puesto en el Jenkinsfile la opción de borrar el contenedor tras el test tendríamos una salida como la siguiente en la web donde veríamos que está corriendo:
+
+<div align="center">
+    <img src="../Imágenes/Creación de los Pipeline en Java/SalidaWeb.png"/>
+</div>
