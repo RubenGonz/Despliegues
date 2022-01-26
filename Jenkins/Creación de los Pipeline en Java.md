@@ -37,13 +37,13 @@ Esta vez vamos a usar un proyecto que tendremos disponible en:
 
 - [Enlace del proyecto en GitHub](https://github.com/RubenGonz/Proyecto-java.git)
 
-Este contendrá la siguente estructura de ficheros:
+Este contendrá la siguiente estructura de ficheros:
 
 <div align="center">
     <img src="../Imágenes/Creación de los Pipeline en Java/EstructuraFicheros.png"/>
 </div>
 
-Donde tendremos una __carpeta src__ que será la que contendrá nuestra aplicación en java, un __dockerfile__ que nos servirá para desplegar un tomcat, nuestro __jenkinsfile__ que testeará el despliegue de nuestra aplicación y el __pom.xml__ que tendrá la configuración, depedencias y plugins de neustra app.
+Donde tendremos una __carpeta src__ que será la que contendrá nuestra aplicación en java, un __dockerfile__ que nos servirá para desplegar un tomcat, nuestro __jenkinsfile__ que testeará el despliegue de nuestra aplicación y el __pom.xml__ que tendrá la configuración, dependencias y plugins de nuestra app.
 
 La carpeta src será la que contendrá nuestro __index.jsp__ que contendrá el home de nuestra página:
 
@@ -89,7 +89,7 @@ EXPOSE 80
 CMD ["catalina.sh", "run"]
 ```
 
-La pipeline contenida en nuestro __Jenkinsfile__ tendrá una parte comentada debido a que nuestro desarrollo esta hecho para que la aplicación se llega a desplegar. En el caso de que unicamente se quiera comprobar su despliegue sin llegar a desplegar la aplicación podemos quitar la parte comentada:
+La pipeline contenida en nuestro __Jenkinsfile__ tendrá una parte comentada debido a que nuestro desarrollo está hecho para que la aplicación se llegue a desplegar. En el caso de que únicamente se quiera comprobar su despliegue sin llegar a desplegar la aplicación podemos quitar la parte comentada:
 
 ```
 pipeline {
@@ -194,7 +194,7 @@ Por último en el __pom.xml__ tendremos:
 </project>
 ```
 
-Ahora ya tendriamos nuestro proyecto en GitHub y podriamos crear nuestra pipeline.
+Ahora ya tendríamos nuestro proyecto en GitHub y podríamos crear nuestra pipeline.
 
 ---
 
