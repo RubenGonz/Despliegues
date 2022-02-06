@@ -31,6 +31,11 @@ Elegir sistema operativo y empieza la descarga
 
 Comprovar java home
 
+sudo apt update
+sudo apt install openjdk-8-jdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=$PATH:$JAVA_HOME/bin
+
 ```console
 java -version
 ```
@@ -100,3 +105,37 @@ Tomcat started.
 
 
 Tienes que tener cuenta y licencia
+
+
+```console
+mkdir bamboo-installation
+
+```
+```console
+cd bamboo-installation/
+```
+```console
+wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-6.8.0.tar.gz
+```
+```console
+cd ../
+```
+```console
+mkdir bamboo-home
+```
+```console
+cd bamboo-home/
+```
+```console
+tar -xvf ../bamboo-installation/atlassian-bamboo-6.8.0.tar.gz
+```
+```console
+sudo nano atlassian-bamboo-6.8.0/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties
+```
+```console
+bamboo.home=/home/rubengonz/bamboo-home/atlassian-bamboo-6.8.0/
+
+```
+```console
+./atlassian-bamboo-6.8.0/bin/start-bamboo.sh
+```
