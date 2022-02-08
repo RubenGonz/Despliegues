@@ -42,9 +42,9 @@ Ventajas:
 
 Bamboo funciona con una estructura propia de la aplicación. Cada uno de los proyectos sigue un __'Plan'__ que habremos creado previamente.
 
-Cada plan esta compuesto por fases o __'Stages'__ donde podemos tener 'Despliegue', 'Tests', etc.
+Cada plan está compuesto por fases o __'Stages'__ donde podemos tener 'Despliegue', 'Tests', etc.
 
-A su vez cada fase esta compuesto por trabajos o __'Jobs'__ que son un conjunto de tareas como puede ser por ejemplo 'desplegar maven' o 'comprobar versiones'.
+A su vez cada fase está compuesta por trabajos o __'Jobs'__ que son un conjunto de tareas como puede ser por ejemplo 'desplegar maven' o 'comprobar versiones'.
 
 Por último la estructura más sencilla que es la que compone los trabajos son las tareas o __'Tasks'__ que es lo más parecido a un pipeline de Jenkins, que será el que contenga nuestras instrucciones.
 
@@ -101,7 +101,7 @@ Por último guardaremos los cambios y haremos:
 source /etc/profile
 ```
 
-Solo faltaría reiniciar el sistema y ya tendríamos declarada la variable de entorno. Para comprobarlo podremos hacer:
+Solo faltaría reiniciar el sistema y ya tendríamos declarada la variable de entorno. Para comprobarlo podemos hacer:
 
 ```console
 echo $JAVA_HOME 
@@ -192,7 +192,7 @@ En el caso de querer parar el servicio podemos usar:
 
 ## Configuración
 
-Al entrar en la pantalla principal lo primero que nos pediá será una clave de licencia que podemos consegui gratuitamente por un periodo de 30 días desde la página oficial de Bamboo o desde el enlace bajo el textArea.
+Al entrar en la pantalla principal lo primero que nos pedía será una clave de licencia que podemos conseguir gratuitamente por un periodo de 30 días desde la página oficial de Bamboo o desde el enlace bajo el textArea.
 
 Cuando la tengamos la insertamos y le damos a __custom installation__.
 
@@ -228,7 +228,7 @@ Ahora ya tendríamos acceso al Home de Bamboo.
 
 ## Creación de un proyecto en Git
 
-Para la demostración de como hacer tasks en bamboo lo que haremos será hacer uso de un repositorio de Git, (aunque no es necesario) donde tendremos nuestro despliegue. Este tendrá la siguiente estructura:
+Para la demostración de como hacer tasks en Bamboo lo que haremos será hacer uso de un repositorio de Git, (aunque no es necesario) donde tendremos nuestro despliegue. Este tendrá la siguiente estructura:
 
 <div align="center">
     <img src="Imagenes/EstructuraRepositorio.png"/>
@@ -250,7 +250,7 @@ Un dockerFile que será el que nos ayudará a desplegar:
 
 ## Creación de un agente
 
-Para empezar a trabajar con Bamboo tendremos que hacer uso de un agente. Un __'agente'__ es un servicio que ofrece capacidades para compilar pudiendo ser remoto o local. En nuestro caso vamos a hacer uso de uno local ya que es más facil de configurar y Bamboo no tiene restricciones con ellos, opuestamente a los agentes remotos.
+Para empezar a trabajar con Bamboo tendremos que hacer uso de un agente. Un __'agente'__ es un servicio que ofrece capacidades para compilar pudiendo ser remoto o local. En nuestro caso vamos a hacer uso de uno local ya que es más fácil de configurar y Bamboo no tiene restricciones con ellos, opuestamente a los agentes remotos.
 
 Para ello nos dirigiremos a la configuración:
 
@@ -258,7 +258,7 @@ Para ello nos dirigiremos a la configuración:
     <img src="Imagenes/Agente1.png"/>
 </div>
 
-Eligiremos crear un nuevo agente local:
+Elegiremos crear un nuevo agente local:
 
 <div align="center">
     <img src="Imagenes/Agente2.png"/>
@@ -282,7 +282,7 @@ Lo primero para poder crear un plan será dirigirnos a __'Create'__ desde la bar
     <img src="Imagenes/CrearPlan1.png"/>
 </div>
 
-Aqui rellenaremos el nombre que queremos que tenga nuestro proyecto y el nombre de nuestro plan que será aquel que veremos y ejecutaremos a la hora de la verdad.
+Aquí rellenaremos el nombre que queremos que tenga nuestro proyecto y el nombre de nuestro plan que será aquel que veremos y ejecutaremos a la hora de la verdad.
 
 Lo siguiente será indicar si queremos que se ejecute localmente o sobre un repositorio. En nuestro caso lo haremos sobre el repositorio que creamos anteriormente alojado en GitHub.
 
@@ -290,7 +290,7 @@ Lo siguiente será indicar si queremos que se ejecute localmente o sobre un repo
     <img src="Imagenes/CrearPlan2.png"/>
 </div>
 
-Deberemos poner la información necesaria para que bamboo pueda hacer uso de la información de nuestro repositorio como el token o el mismo nombre.
+Deberemos poner la información necesaria para que Bamboo pueda hacer uso de la información de nuestro repositorio como el token o el mismo nombre.
 
 <div align="center">
     <img src="Imagenes/CrearPlan3.png"/>
@@ -302,9 +302,9 @@ Lo siguiente que haremos será crear un trabajo. Por defecto nos saldrá esta ve
     <img src="Imagenes/CrearJob1.png"/>
 </div>
 
-Aquí decidiremos que agente usaremos, si lo queremos alojar con contenedores Docker, las tareas que tendra...
+Aquí decidiremos que agente usaremos, si lo queremos alojar con contenedores Docker, las tareas que tendrá...
 
-Una vez creado a nuestro gusto podremos acceder a él y establecerle un nombre más adecado como por ejemplo:
+Una vez creado a nuestro gusto podremos acceder a él y establecer un nombre más adecuado como por ejemplo:
 
 <div align="center">
     <img src="Imagenes/CrearJob2.png"/>
@@ -316,7 +316,7 @@ Crearemos tantos como necesitemos. En nuestro caso solo haremos uso de un único
 
 ## Crear tareas
 
-Dentro de este Job podremos crear tantas tareeas como veamos necesarias. En mi caso crearé dos tareas una para construir y arrancar una imagen de docker y otra para comprobar el conenido de la página. Las tareas las crearemos desde el botón 'Add Task':
+Dentro de este Job podremos crear tantas tareas como veamos necesarias. En mi caso crearé dos tareas una para construir y arrancar una imagen de docker y otra para comprobar el contenido de la página. Las tareas las crearemos desde el botón 'Add Task':
 
 <div align="center">
     <img src="Imagenes/CrearTarea1.png"/>
@@ -334,7 +334,7 @@ En nuestro caso usaremos shell/script. Lo que nos dejará esta visión:
     <img src="Imagenes/CrearTarea3.png"/>
 </div>
 
-Aquí podremos ver como nos permite añadirle una descripción, identificar el interprete (shell,powershell,cmd...) e indicar donde se encuentra el archivo de la task donde podemos escribirla en un cuadro de texto o extraerla de un archivo del repositorio. En nuestro caso hemos elegido la primera opción por lo que nos quedarían:
+Aquí podremos ver como nos permite añadirle una descripción, identificar el intérprete (shell,powershell,cmd...) e indicar donde se encuentra el archivo de la task donde podemos escribirla en un cuadro de texto o extraerla de un archivo del repositorio. En nuestro caso hemos elegido la primera opción por lo que nos quedarían:
 
 - Construcción y arranque del contenedor
 
@@ -358,7 +358,7 @@ Para ejecutar un plan debemos dirigirnos al home de nuestro plan y dirigirnos al
     <img src="Imagenes/EjecutarPlan.png"/>
 </div>
 
-Esto nos redirijiría a una pantalla donde veríamos como procede la ejecución dandonos detalles del tiempo restante estimado y comparaciones con ejecuciones anteriores entre otras cosas.
+Esto nos redirigirá a una pantalla donde veríamos como procede la ejecución dándonos detalles del tiempo restante estimado y comparaciones con ejecuciones anteriores entre otras cosas.
 
 <div align="center">
     <img src="Imagenes/EjecucionPlan.png"/>
@@ -370,9 +370,9 @@ Cuando el proceso esperase deberíamos obtener un mensaje similar a :
     <img src="Imagenes/ComprobaciónTask.png"/>
 </div>
 
-Con esto ya sabriamos que hemos hecho nuestro despligue correctamente.
+Con esto ya sabremos que hemos hecho nuestro despliegue correctamente.
 
-Para poder ver el plano general de nuestro plan podriamos ir a su home donde veriamos las ejecuciones hechas, los porcentajes de fallo, el tiempo trascurrido...
+Para poder ver el plano general de nuestro plan podriamos ir a su home donde veríamos las ejecuciones hechas, los porcentajes de fallo, el tiempo transcurrido...
 
 <div align="center">
     <img src="Imagenes/General.png"/>
@@ -382,4 +382,4 @@ Para poder ver el plano general de nuestro plan podriamos ir a su home donde ver
 
 ## Conclusión
 
-La herramienta es compleja de entender en el caso de que no tengas conocimientos básicos anteriormente, sin embargo se puede ver todo el potencial que tiene sin tener que indagar demasiado en el servicio. El software está adaptado para poder interactuar con muchas otras herramientas sin tener que contar con dificiles instalaciones por lo que ayuda a que sea más comoda para el usuario y por lo tanto facilite el trabajo que en otras herramientas no sería tan sencillo.
+La herramienta es compleja de entender en el caso de que no tengas conocimientos básicos anteriormente, sin embargo se puede ver todo el potencial que tiene sin tener que indagar demasiado en el servicio. El software está adaptado para poder interactuar con muchas otras herramientas sin tener que contar con difíciles instalaciones por lo que ayuda a que sea más cómoda para el usuario y por lo tanto facilite el trabajo que en otras herramientas no sería tan sencillo.
