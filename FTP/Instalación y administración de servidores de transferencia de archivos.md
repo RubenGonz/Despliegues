@@ -31,7 +31,7 @@ Para la instalación y configuración sólo tendremos que contar con Internet y 
 
 ## Instalación de FTP
 
-Para la instalación de FTP lo primero que haremos será actuallizar los paquetes que nos proporciona el sistema operativo de Linux. Para ello ejecutaremos el comando:
+Para la instalación de FTP lo primero que haremos será actualizar los paquetes que nos proporciona el sistema operativo de Linux. Para ello ejecutaremos el comando:
 
 ```console
 sudo apt update
@@ -53,7 +53,7 @@ Donde veremos:
     <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/Instalación.png"/>
 </div>
 
-Ahora que ya lo tenemos en nuestro sistema lo siguiente que haremos será permitir el acceso a los puertos estandar de FTP y el puerto de datos del mismo protocolo. Solo necesitaremos hacer:
+Ahora que ya lo tenemos en nuestro sistema lo siguiente que haremos será permitir el acceso a los puertos estándar de FTP y el puerto de datos del mismo protocolo. Solo necesitaremos hacer:
 
 ```console
 sudo ufw allow ftp
@@ -68,7 +68,7 @@ sudo ufw allow ftp-data
 
 ## Comprobación del servicio
 
-Para comprobar que hemos hecho la instalación correctamente podemos comrpobar el estado de una de las herramientas instaladas donde solo tendriamos que poner:
+Para comprobar que hemos hecho la instalación correctamente podemos comprobar el estado de una de las herramientas instaladas donde solo tendríamos que poner:
 
 ```console
 systemctl status vsftpd
@@ -124,7 +124,7 @@ pasv_max_port=30050
     <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/ContenidoConf.png"/>
 </div>
 
-Donde estamos indicando el rango de puertos disponibles que mas nos interese.
+Donde estamos indicando el rango de puertos disponibles que más nos interese.
 
 Para guardar los cambios y que tengan un efecto real deberemos recargar el servicio usando:
 
@@ -146,7 +146,7 @@ sudo ufw allow 30000:30050/tcp
     <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/permitirPuertos.png"/>
 </div>
 
-Ahora cuando queramos usar el modo pasivo lo unico que tendremos que hacer es usar el siguiente comando despues de la autenticación: 
+Ahora cuando queramos usar el modo pasivo lo único que tendremos que hacer es usar el siguiente comando después de la autenticación: 
 
 ```console
 passive
@@ -158,7 +158,7 @@ passive
 
 El servidor tiene dos formas con las que trabajar que son usando un acceso anónimo o un usuario del sistema. Por defecto se usa la opción de usuarios del sistema que necesitan autenticarse previamente. 
 
-En el caso de que la quieras úniamente para usuarios anónimos buscaremos la opción "local_enable" en nuestro archivo de configuración y la cambiaremos a *NO* como en el ejemplo:
+En el caso de que la quieras únicamente para usuarios anónimos buscaremos la opción "local_enable" en nuestro archivo de configuración y la cambiaremos a *NO* como en el ejemplo:
 
 ```console
 local_enable=NO
@@ -207,7 +207,7 @@ Sin embargo, este certificado normalmente está creado para el nombre de máquin
 
 Como alternativa podemos instalar certificados firmados para el dominio con el que vayamos a conectar, o crear certificados autofirmados.
 
-Por ejemplo en el caso de que quisieramos crear un certidicado para el dominio *daw.dpl*.
+Por ejemplo en el caso de que quisiéramos crear un certificado para el dominio *daw.dpl*.
 
 Una manera de hacerlos sería usando el comando openssl:
 
@@ -215,7 +215,7 @@ Una manera de hacerlos sería usando el comando openssl:
 sudo openssl req -x509 -newkey rsa:2048 -days 3650 -nodes -out /etc/ssl/certs/daw.dpl.crt -keyout /etc/ssl/private/daw.dpl.key
 ```
 
-Donde tendremos que cumplimentar los datos que nos pidan prestandole atención al de Common Name:
+Donde tendremos que cumplimentar los datos que nos pidan prestando atención al de Common Name:
 
 ```console
 Common Name (e.g. server FQDN or YOUR name) []:daw.dpl
@@ -256,3 +256,5 @@ sudo systemctl restart vsftpd
 <div align="center">
     <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en local/ReiniciarServicio.png"/>
 </div>
+
+Y con esto ya habríamos terminado.
