@@ -1,13 +1,15 @@
 # Despliegue de un War en Apache-Tomcat
 
 <div align="center">
-    <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/Portada.png"/>
+  <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/Portada.png"/>
 </div>
 
 ## Índice
 
 - [Introducción]()
 - [Carpetas importantes]()
+- [Terminología]()
+- [Creación de una App Web en Java]()
 
 ---
 
@@ -17,88 +19,98 @@ Apache Tomcat como uno de los servidores más usados y populares entre la gran v
 
 ---
 
-## Datos importantes
+## Carpetas importantes
 
 -  $CATALINA_HOME
 
-En esta vaEsta variable es el punto de instalación de __Tomcat__.
+Esta variable será el punto de instalación de nuestro Tomcat.
 
-### $CATALINA_BASE  
+- $CATALINA_BASE  
 
-  Esta variable es el directorio de despliegue de las aplicaciones en __Tomcat__, configurable si se desea. Esta variable no se setea explícitamente, suele y debe estar asociada al valor de __$CATALINA_HOME__.
+Esta variable será el punto de despliegue de nuestro Tomcat, que suele estar asociada al valor de $CATALINA_HOME. Por ejemplo una aplicación la podríamos encontrar en $CATALINA_HOME\webapps.
 
-  Las aplicaciones web son desplegadas en el directorio __$CATALINA_HOME\webapps__.
+---
 
 ## Terminología
 
-  -  Document root. Referencia la carpeta superior de la aplicación web, donde están localizados todos los recursos: _jsp, html, clases java, e imágenes.
-  - Context path. Hace referencia a la localización de la dirección del servidor y representa el nombre de la aplicación web.
-  Por ejemplo, si nuestra aplicación web esta desplegada en _$CATALINA_HOME\webapps\myapp_, el acceso a la aplicación debiera de ser _http://localhost/myapp_, y el contexto de la aplicación esta en _/myapp_.
-  - War. Es la extensión de los ficheros que contienen una aplicación Web, que hereda directamente de _Zip_ y es utilizado para comprimidos web. La creación de los ficheros con extensión _war_ puede ser a través de directamente el _IDE_ o a través de herramientas como _Maven_ que realizan la construcción de este tipo de ficheros, y el despliegue automático.
-  ```
-  <plugin>
-    <groupId>org.apache.tomcat.maven</groupId>
-    <artifactId>tomcat7-maven-plugin</artifactId>
-    <version>2.2</version>
-    <configuration>
-        <url>http://localhost:8082/manager/text</url>
-        <server>TomcatServer</server>
-        <path>/myapp</path>
-    </configuration>
-  </plugin>
-  ```
-  El despliegue se realizará a través de comandos del tipo:
-```console
-  mvn tomcat7:deploy
+- Root. Es la carpeta raíz o padre de nuestra aplicación.
+- Context path. Es la carpeta que representa el nombre de la aplicación web. Por ejemplo si nuestra aplicación se llamase 'miAplicacion' nuestra aplicación se desplegaría en $CATALINA_HOME\webapps\miAplicacion, el acceso desde el navegador lo veremos en http://localhost/miAplicacion y el contexto estaría en /miAplicacion.
+- War. Es la extensión de nuestros ficheros de la aplicación Web. Para la creación de los ficheros con extensión _war_ podemos hacer usos de herramientas como Maven que nos ayuda con la construcción de este tipo de ficheros y su despliegue.
+
+Para añadir nuestro tomcat a un proyecto le incrustaríamos este texto a nuestro pom.xml:
+
 ```
-  ,o el redespliegue:
-```console
-  mvn tomcat7:redeploy
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat7-maven-plugin</artifactId>
+  <version>2.2</version>
+  <configuration>
+    <url>http://localhost:8082/manager/text</url>
+    <server>TomcatServer</server>
+    <path>/myapp</path>
+  </configuration>
+</plugin>
 ```
-  , por último la eliminación con:
+
+Para realizar el despliegue tendremos el comando:
+
 ```console
-  mvn tomcat7:undeploy
+mvn tomcat7:deploy
 ```
+
+En el caso de que queramos redesplegar una aplicación también disponemos de:
+
+```console
+mvn tomcat7:redeploy
+```
+
+Y para terminar el despliegue tenemos:
+
+```console
+mvn tomcat7:undeploy
+```
+
+---
 
 ## Creación de una App Web en Java
 
-### Requisitos previos
+Lo siguiente que haremos será hacer uso de un proyecto que ya habremos creado u obtenido. En mi caso usaré el que se encuentra en:
 
-  Dado que disponemos de la instalación de [JAVA](../../../comun/JDK.md), vamos a realizar la instalación de [MAVEN](../../../comun/MAVEN.md).
+- [Proyecto de Java](https://github.com/jpexposito/docencia/tree/master/COMUN/ejemplos/java/app-web-demo)
 
-### Construcción del proyecto
+Una vez lo tenemos modificaremos el fichero web.xml cambiando:
 
-  En el siguiente [enlace](https://github.com/jpexposito/docencia/tree/master/comun/ejemplos/java/app-web-demo) dispones de un proyecto de una app en [Java](../../../comun/ejemplos/java), donde debes de realizar los siguientes cambios:
-  - Fichero __web.xml__. Sustituye:
-
-```console
-   <display-name>app-web-alumno</display-name>  
+```
+<display-name>app-web-alumno</display-name>  
 ```
 
-  por:
+por:
+
+```
+<display-name>app-web-ruben</display-name>
+```
+Entre otros cambios...
+
+Para construir nuestro war de la aplicación tendremos que hacer:
 
 ```console
-   <display-name>app-web-aron</display-name>
-  ```
+mvn clean install
+```
 
-  donde _aron_ sería el nombre del alumno.
-  - Fichero __index.jsp__. Realiza la sustitución del valor alumno siguiendo el mismo patrón.
-
-  Lanza el siguiente comando:
-  ```console
-  mvn clean install
-  ```
-  Dentro de la carpeta __target__ debes de encontrar un fichero de nombre __app-web-alumno.war__, donde se especifica dentro del fichero __pom.xml__ en la etiqueta __finalName__. Este nombre se especifica dentro del fichero _pom.xml_, por si tienes curiosidad y deseas cambiarlo.
-
-  _No obstante, si quieres, puedes hacer uso de maven para la construcción de la aplicación web. Para ello, vamos a invocar el siguiente comando, donde alumno, debe de ser las siglas del alumno que esta realizando la tarea_.
-
-  ```console
-  mvn archetype:generate -DgroupId=es.iespuerto.alumno -DartifactId=app-alumno
-    -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
-  ```  
-  _Tras la ejecución del comando y después de unos instantes, mientras se descargan numerosas librerías la primera vez, tendremos una aplicación web completa en Java, lo que vulgarmente se conoce como un hola mundo_.
-
+Que si todo va bien nos deberá salir un mensaje tal como:
 
 <div align="center">
-  <img width="400px" src="http://josecostaros.es/wp-content/uploads/2013/04/hola_mundo-676x450.jpg"  />
+  <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/mvnClean.png"/>
+</div>
+
+Esto nos creará una carpeta target con 'app-web-ruben.war'. Posteriormente si queremos deplegar el war con maven podemos eliminar nuestro pom.xml y ejecutar:
+
+```console
+mvn archetype:generate -DgroupId=es.iespuerto.ruben -DartifactId=app-ruben -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+```  
+
+Que nos creará una nueva estructura adecuada para la herramienta tal como la siguiente:
+
+<div align="center">
+  <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/EstructuraMaven.png"/>
 </div>
