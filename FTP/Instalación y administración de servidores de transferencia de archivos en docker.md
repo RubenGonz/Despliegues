@@ -30,7 +30,7 @@ Para la instalación y configuración sólo tendremos que contar con Internet, u
 
 ## Buscar imagenes
 
-Lo primero que haremos sera obtener la imagen de Docker para SFTP que decidamos. Para buscarlas podemos ver las que nos aporta: 
+Lo primero que haremos será obtener la imagen de Docker para SFTP que decidamos. Para buscarlas podemos ver las que nos aporta: 
 
 - https://hub.docker.com
 
@@ -40,7 +40,7 @@ Para obtener los resultados de buscar "*sftp*" usaremos el comando:
 sudo docker search sftp
 ```
 
-Donde nos saldrá una lista de imagenes de "*sftp*" como la siguiente:
+Donde nos saldrá una lista de imágenes de "*sftp*" como la siguiente:
 
 <div align="center">
     <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en docker/ListaImagenes.png">
@@ -99,7 +99,7 @@ sudo docker inspect a3485c0302a1 | grep "IPAddress"
 
 ## Configurar home de un usuario
 
-Para configurar un usuario o los usuarios ace falta configurar un directorio Home. Esto lo haremos con el comando:
+Para configurar un usuario o los usuarios hace falta configurar un directorio Home. Esto lo haremos con el comando:
 
 ```console
 docker run --name mysftp2 -v /host/upload:/home/admin/upload --privileged=true -p 2295:22 -d atmoz/sftp admin:admin:1001
@@ -108,8 +108,8 @@ docker run --name mysftp2 -v /host/upload:/home/admin/upload --privileged=true -
 Donde:
 
 - name: Tenemos que generar un nuevo nombre debido a que este no se puede repetir, al igual que el puerto.
-- v: Aqui estableceremos el home donde indicaremos el directorio del host y el directorio en el contenedor. En el caso de que local/host/uplaod no exista se crea.
-- privileged: Aqui indicaremos que le queremos añadir privilegios al contenedor debido a que es necesario por la seguridad de selinux.
+- v: Aquí estableceremos el home donde indicaremos el directorio del host y el directorio en el contenedor. En el caso de que local/host/uplaod no exista se crea.
+- privileged: Aquí indicaremos que le queremos añadir privilegios al contenedor debido a que es necesario por la seguridad de selinux.
 
 <div align="center">
     <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en docker/ConfigurarHome.png">
@@ -121,12 +121,12 @@ Donde:
 
 Para configurar varios usuarios tenemos dos alternativas:
 
-- Creemos usuarios en el contenedor y asignamos permisos.
+- Creamos usuarios en el contenedor y asignamos permisos.
 - Escribimos archivos de usuario en el host y los montamos en el contenedor.
 
-Para el primer metodo podemos ayudarnos del comando del ejemplo anterior.
+Para el primer método podemos ayudarnos del comando del ejemplo anterior.
 
-Para el 2 metodo tendremos que cerar /host/users.conf en nuestro directorio local y ejecutar:
+Para el 2 método tendremos que crear /host/users.conf en nuestro directorio local y ejecutar:
 
 ```console
 sudo docker run --name mysftp3 -v /host/users.conf:/etc/sftp/users.conf:ro -v /home/sftp:/home --privileged=true -p 2296:22 -d atmoz/sftp
@@ -150,4 +150,4 @@ Como en el ejemplo:
     <img src="../Imágenes/Instalación y administración de servidores de transferencia de archivos en docker/EstructuraUser.png">
 </div>
 
-Ahora ya tendriamos los usurios creados.
+Ahora ya tendríamos los usuarios creados.
