@@ -8,16 +8,16 @@
 
 ## Índice
 
-- [Introducción]()
-- [Requisitos]()
-- [Construcción del proyecto]()
-- [Errores]()
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/Apache/Servicios%20RESTful%20con%20Tomcat%20y%20Jersey.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Apache/Servicios%20RESTful%20con%20Tomcat%20y%20Jersey.md#requisitos)
+- [Construcción del proyecto](https://github.com/RubenGonz/Despliegues/blob/main/Apache/Servicios%20RESTful%20con%20Tomcat%20y%20Jersey.md#construcci%C3%B3n-del-proyecto)
+- [Errores](https://github.com/RubenGonz/Despliegues/blob/main/Apache/Servicios%20RESTful%20con%20Tomcat%20y%20Jersey.md#errores)
 
 ---
 
 ## Introducción
 
-En esta ocasión lo que vamos a implantar será un servicio RESTful ayudándonos de dos herramientas como son Fersey y Tomcat 10. A parte de estas también usaremos Maven, la cuál gestionará nuestras depencias del proyecto.
+En esta ocasión lo que vamos a implantar será un servicio RESTful ayudándonos de dos herramientas como son Jersey y Tomcat 10. Aparte de estas también usaremos Maven, la cuál gestionará nuestras dependencias del proyecto.
 
 En el caso de una Api Rest como la que crearemos se aprovechará de los métodos HTTP que són:
 
@@ -62,7 +62,7 @@ sudo cp Escritorio/rest-service/target/rest-service.war webapps/webapps
 
 Para que nos lo muestre en nuestro tomcat.
 
-Ahora para acceder a nuestra aplicación iriamos a nuestro manager como en otras ocaciones saltandonos una ventana como la siguiente:
+Ahora para acceder a nuestra aplicación iriamos a nuestro manager como en otras ocasiones saltandonos una ventana como la siguiente:
 
 <div align="center">
     <img src="../Imágenes/Servicios RESTful con Tomcat y Jersey/Error.png"/>
@@ -70,7 +70,7 @@ Ahora para acceder a nuestra aplicación iriamos a nuestro manager como en otras
 
 ## Errores
 
-Como ya hemos visto no obtenemos la respuesta esperada. Para ver porque es así deberemos dirigirnos a:
+Como ya hemos visto no obtenemos la respuesta esperada. Para ver porqué es así deberemos dirigirnos a:
 
 ```
 /opt/tomcat/apache-tomcat/logs/catalina."Fecha".log
@@ -79,11 +79,10 @@ Como ya hemos visto no obtenemos la respuesta esperada. Para ver porque es así 
 /opt/tomcat/apache-tomcat/logs/localhost."Fecha".log
 ```
 
-En estos dos archivos deberiamos poder ver salidas como por ejemplo:
+En estos dos archivos deberíamos poder ver salidas como por ejemplo:
 
 <div align="center">
     <img src="../Imágenes/Servicios RESTful con Tomcat y Jersey/SalidaLog.png"/>
 </div>
 
-En mi caso no encontre un error que pudiese solucionar a través de la incorporación de una nueva dependencia, cambio en el código de la aplicación o configuración de Tomcat. Pidiendo ayuda a mis compañeros he visto que algunos obtienen uno o varios mensajes de error que en mi caso no se encuentran por lo que no puedo seguir avanzando con la práctica.
-
+En mi caso no encontré un error que pudiese solucionar a través de la incorporación de una nueva dependencia, cambio en el código de la aplicación o configuración de Tomcat. Pidiendo ayuda a mis compañeros he visto que algunos obtienen uno o varios mensajes de error que en mi caso no se encuentran por lo que no puedo seguir avanzando con la práctica.
