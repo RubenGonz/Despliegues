@@ -11,7 +11,7 @@
 - [Introducción]()
 - [Requisitos]()
 - [Construcción del proyecto]()
-- [Solución a nuestros errorres]()
+- [Errores]()
 
 ---
 
@@ -68,7 +68,7 @@ Ahora para acceder a nuestra aplicación iriamos a nuestro manager como en otras
     <img src="../Imágenes/Servicios RESTful con Tomcat y Jersey/Error.png"/>
 </div>
 
-## Solución a nuestros errorres
+## Errores
 
 Como ya hemos visto no obtenemos la respuesta esperada. Para ver porque es así deberemos dirigirnos a:
 
@@ -79,5 +79,11 @@ Como ya hemos visto no obtenemos la respuesta esperada. Para ver porque es así 
 /opt/tomcat/apache-tomcat/logs/localhost."Fecha".log
 ```
 
-En estos dos archivos deberiamos poder ver los errores resultantes como por ejemplo:
+En estos dos archivos deberiamos poder ver salidas como por ejemplo:
+
+<div align="center">
+    <img src="../Imágenes/Servicios RESTful con Tomcat y Jersey/SalidaLog.png"/>
+</div>
+
+En mi caso no encontre un error que pudiese solucionar a través de la incorporación de una nueva dependencia, cambio en el código de la aplicación o configuración de Tomcat. Pidiendo ayuda a mis compañeros he visto que algunos obtienen uno o varios mensajes de error que en mi caso no se encuentran por lo que no puedo seguir avanzando con la práctica.
 
