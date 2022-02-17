@@ -137,7 +137,7 @@ sudo cp Escritorio/Proyecto-java/target/app-web-ruben.war webapps/webapps
   <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/copiarWar.png"/>
 </div>
 
-Posteriormente accederemos añ manager de nuestro tomcar através de:
+Posteriormente accederemos al manager de nuestro tomcat a través de:
 
 - http://localhost:8083/manager/html
 
@@ -149,8 +149,10 @@ Donde veremos:
 
 Nos saldrán nuestros distintos war y su estado como en nuestro caso que es activo.
 
-Accediendo a http://localhost:8083/app-web-ruben/ veremos nuestra aplcación desplegada:
+Accediendo a http://localhost:8083/app-web-ruben/ veremos nuestra aplicación desplegada:
 
 <div align="center">
   <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/VistaFinal.png"/>
 </div>
+
+Teniendo la vista de nuestra aplicación desplegada.
