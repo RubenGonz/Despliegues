@@ -4,10 +4,14 @@
     <img src="../Imágenes/Servicios RESTful con Tomcat y Jersey/Portada.png"/>
 </div>
 
+---
+
 ## Índice
 
 - [Introducción]()
-- [Creando nuestro servicio restfulapi]()
+- [Requisitos]()
+- [Construcción del proyecto]()
+- [Solución a nuestros errorres]()
 
 ---
 
@@ -34,4 +38,46 @@ Y a parte la instalación de un cliente Rest como puede ser:
 
 - [Advanced Rest Client](https://install.advancedrestclient.com/install)
 
-## Problemas durante el despliegue
+Ahora que ya tenemos los conocimientos necesarios empecemos:
+
+---
+
+## Construcción del proyecto
+
+En esta ocasión lo que haremos será hacer uso de un proyecto con el servicio Rest ya incorporado como el siguiente:
+
+- [Aplicación con servicio Rest](https://github.com/jpexposito/docencia/tree/master/COMUN/ejemplos/java/rest-service)
+
+Y construirlo haciendo uso de:
+
+```console
+mvn clean install
+```
+
+Para que nos genere el war y :
+
+```console
+sudo cp Escritorio/rest-service/target/rest-service.war webapps/webapps
+```
+
+Para que nos lo muestre en nuestro tomcat.
+
+Ahora para acceder a nuestra aplicación iriamos a nuestro manager como en otras ocaciones saltandonos una ventana como la siguiente:
+
+<div align="center">
+    <img src="../Imágenes/Servicios RESTful con Tomcat y Jersey/Error.png"/>
+</div>
+
+## Solución a nuestros errorres
+
+Como ya hemos visto no obtenemos la respuesta esperada. Para ver porque es así deberemos dirigirnos a:
+
+```
+/opt/tomcat/apache-tomcat/logs/catalina."Fecha".log
+```
+```
+/opt/tomcat/apache-tomcat/logs/localhost."Fecha".log
+```
+
+En estos dos archivos deberiamos poder ver los errores resultantes como por ejemplo:
+
