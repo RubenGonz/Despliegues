@@ -10,6 +10,7 @@
 - [Carpetas importantes](https://github.com/RubenGonz/Despliegues/blob/main/Apache/Despliegue%20de%20un%20War%20en%20Apache-Tomcat.md#carpetas-importantes)
 - [Terminología](https://github.com/RubenGonz/Despliegues/blob/main/Apache/Despliegue%20de%20un%20War%20en%20Apache-Tomcat.md#terminolog%C3%ADa)
 - [Creación de una App Web en Java](https://github.com/RubenGonz/Despliegues/blob/main/Apache/Despliegue%20de%20un%20War%20en%20Apache-Tomcat.md#creaci%C3%B3n-de-una-app-web-en-java)
+- [Despliegue](https://github.com/RubenGonz/Despliegues/blob/main/Apache/Despliegue%20de%20un%20War%20en%20Apache-Tomcat.md#despliegue)
 
 ---
 
@@ -103,14 +104,53 @@ Que si todo va bien nos deberá salir un mensaje tal como:
   <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/mvnClean.png"/>
 </div>
 
-Esto nos creará una carpeta target con 'app-web-ruben.war'. Posteriormente si queremos deplegar el war con maven podemos eliminar nuestro pom.xml y ejecutar:
+Esto nos creará una carpeta target con 'app-web-ruben.war'. 
+
+---
+
+## Despliegue
+
+Para desplegar nuestro war creamos una carpeta nueva dentro de nuestro root con:
 
 ```console
-mvn archetype:generate -DgroupId=es.iespuerto.ruben -DartifactId=app-ruben -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
-```  
+cd ~
+mkdir webapps && cd webapps
+```
 
-Que nos creará una nueva estructura adecuada para la herramienta tal como la siguiente:
+Y hacerle un enlace simbólico a /opt/tomcat/apache-tomcat/webapps/ con:
+
+```console
+sudo ln -s /opt/tomcat/apache-tomcat/webapps/ .
+```
 
 <div align="center">
-  <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/EstructuraMaven.png"/>
+  <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/enlaceSimbolico.png"/>
+</div>
+
+Ahora usaremos nuestro archivo war copiandolo a la carpeta webapps/webapps con:
+
+```console
+sudo cp Escritorio/Proyecto-java/target/app-web-ruben.war webapps/webapps
+```
+
+<div align="center">
+  <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/copiarWar.png"/>
+</div>
+
+Posteriormente accederemos añ manager de nuestro tomcar através de:
+
+- http://localhost:8083/manager/html
+
+Donde veremos:
+
+<div align="center">
+  <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/manager.png"/>
+</div>
+
+Nos saldrán nuestros distintos war y su estado como en nuestro caso que es activo.
+
+Accediendo a http://localhost:8083/app-web-ruben/ veremos nuestra aplcación desplegada:
+
+<div align="center">
+  <img src="../Imágenes/Despliegue de un War en Apache-Tomcat/VistaFinal.png"/>
 </div>

@@ -33,7 +33,7 @@ sudo apt update && sudo apt upgrade
 Una vez actualizado los paquetes lo siguiente será descargarnos desde el sitio web oficial el paquete que queramos usar, nosotros lo haremos através de la consola usando la herramienta wget de esta manera:
 
 ```console
-wget https://downloads.apache.org/tomcat/tomcat-10/v10.0.12/bin/apache-tomcat-10.0.12.tar.gz
+wget https://downloads.apache.org/tomcat/tomcat-10/v10.0.16/bin/apache-tomcat-10.0.16.tar.gz
 ```
 
 <div align="center">
@@ -94,23 +94,20 @@ Aquí escribiremos:
 
 ~~~~
 [Unit]
-
 Description=Tomcat 10.0 servlet container para Ubuntu 20.04 LTS
-
 After=network.target
-
 [Service]
-
 Type=forking
-
 User=tomcat
-
 Group=tomcat
-
-Environment="JAVA\_OPTS=-Djava.security.egd=file:///dev/urandom" Environment="CATALINA\_BASE=/opt/tomcat/apache-tomcat" Environment="CATALINA\_HOME=/opt/tomcat/apache-tomcat" Environment="CATALINA\_PID=/opt/tomcat/apache-tomcat/temp/tomcat.pid" Environment="CATALINA\_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC" ExecStart=/opt/tomcat/apache-tomcat/bin/startup.sh ExecStop=/opt/tomcat/apache-tomcat/bin/shutdown.sh
-
+Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom"
+Environment="CATALINA_BASE=/opt/tomcat/apache-tomcat"
+Environment="CATALINA_HOME=/opt/tomcat/apache-tomcat"
+Environment="CATALINA_PID=/opt/tomcat/apache-tomcat/temp/tomcat.pid"
+Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+ExecStart=/opt/tomcat/apache-tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/apache-tomcat/bin/shutdown.sh
 [Install]
-
 WantedBy=multi-user.target
 ~~~~
 
@@ -145,6 +142,12 @@ Cambiando su contenido haciendo que el puerto sea el 8083,por ejemplo.
 <div align="center">
     <img src="../Imágenes/Instalación de Apache Tomcat/Puertos.png"/>
 </div>
+
+Ahora para que se guarden los cambios tendremos que hacer:
+
+```console
+sudo systemctl restart tomcat10
+```
 
 Para especificar que queremos que al arrancar el servicio cada vez encendamos el pc escribiremos:
 
