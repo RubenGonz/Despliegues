@@ -6,11 +6,11 @@
 
 ## Índice
 
-- [Introducción]()
-- [Requisitos]()
-- [Construcción del proyecto]()
-- [Despliegue con Jetty]()
-- [Despliegue con Docker-compose]()
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/WildFly/Clusterizando%20una%20App%20en%20Wildfly.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/WildFly/Clusterizando%20una%20App%20en%20Wildfly.md#requisitos)
+- [Construcción del proyecto](https://github.com/RubenGonz/Despliegues/blob/main/WildFly/Clusterizando%20una%20App%20en%20Wildfly.md#construcci%C3%B3n-del-proyecto)
+- [Despliegue con Jetty](https://github.com/RubenGonz/Despliegues/blob/main/WildFly/Clusterizando%20una%20App%20en%20Wildfly.md#despliegue-con-jetty)
+- [Despliegue con Docker-compose](https://github.com/RubenGonz/Despliegues/blob/main/WildFly/Clusterizando%20una%20App%20en%20Wildfly.md#despliegue-con-docker-compose)
 
 ---
 
@@ -28,6 +28,8 @@ Para esta nueva confguración necesitaremos:
 - Maven instalado
 - Docker instalado
 - Docker-compose instalado
+
+---
 
 ## Construcción del proyecto
 
@@ -122,6 +124,8 @@ Donde al acceder al puerto 9000, que es el que indicamos en nuestro pom.xml vere
 <div align="center">
     <img src="../Imágenes/Clusterizando una App en Wildfly/Despliegue1.png"/>
 </div>
+
+---
 
 ## Despliegue con Docker-compose
 
