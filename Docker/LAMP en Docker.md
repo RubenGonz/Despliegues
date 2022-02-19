@@ -25,7 +25,7 @@ Una de las estructuras más conocidas y populares de todas es la estructura Lamp
 
 Para este ejercicio haremos uso de las herramientas:
 
-- [Docker](https://github.com/RubenGonz/Despliegues/blob/main/Docker/Instalaci%C3%B3n%20de%20Docker.md)
+- [Instalación de Docker](https://github.com/RubenGonz/Despliegues/blob/main/Docker/Instalaci%C3%B3n%20de%20Docker.md)
 - Instalación de Docker-compose
 
 ---
