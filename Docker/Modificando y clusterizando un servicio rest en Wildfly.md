@@ -8,10 +8,10 @@
 
 ## Índice
 
-- [Introducción]()
-- [Requisitos]()
-- [Creación del proyecto]()
-- [Ejecución y vista final]()
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/Docker/Modificando%20y%20clusterizando%20un%20servicio%20rest%20en%20Wildfly.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Docker/Modificando%20y%20clusterizando%20un%20servicio%20rest%20en%20Wildfly.md#requisitos)
+- [Creación del proyecto](https://github.com/RubenGonz/Despliegues/blob/main/Docker/Modificando%20y%20clusterizando%20un%20servicio%20rest%20en%20Wildfly.md#creaci%C3%B3n-proyecto)
+- [Ejecución y vista final](https://github.com/RubenGonz/Despliegues/blob/main/Docker/Modificando%20y%20clusterizando%20un%20servicio%20rest%20en%20Wildfly.md#ejecuci%C3%B3n-y-vista-final)
 
 ---
 
@@ -45,7 +45,7 @@ A este proyecto le haremos unos cuantos cambios como por ejemplo cambiar la estr
     <img src="../Imágenes/Modificando y clusterizando un servicio rest en Wildfly/Estructura.png"/>
 </div>
 
-Las carpetas conf y dump las habremos obtenido de la práctica de la creación de una estructura LAMP, la carpeta src la tenemos de nuestro proyecto base, como el pom.xml, la carpeta target la nombraremos posteriormente y los ficheros dockerfile y docker-compose.yml los crearemos acontinuación.
+Las carpetas conf y dump las habremos obtenido de la práctica de la creación de una estructura LAMP, la carpeta src la tenemos de nuestro proyecto base, como el pom.xml, la carpeta target la nombraremos posteriormente y los ficheros dockerfile y docker-compose.yml los crearemos a continuación.
 
 El fichero Dockerfile será como el siguiente:
 
@@ -220,7 +220,7 @@ Que nos lo correrá en el puerto 9000.
     <img src="../Imágenes/Modificando y clusterizando un servicio rest en Wildfly/Jetty.png"/>
 </div>
 
-Ahora si en el caso de que todo haya ido correctamente lo siguiente que haremos será ejectar nuestro docker-compose con:
+Ahora si en el caso de que todo haya ido correctamente lo siguiente que haremos será ejecutar nuestro docker-compose con:
 
 ```
 sudo docker-compose up -d
