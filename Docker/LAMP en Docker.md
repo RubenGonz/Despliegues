@@ -8,10 +8,10 @@
 
 ## Índice
 
-- [Introducción]()
-- [Requisitos]()
-- [Creación proyecto ]()
-- [Ejecución y vista final]()
+- [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#introducci%C3%B3n)
+- [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#requisitos)
+- [Creación proyecto ](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#creaci%C3%B3n-proyecto)
+- [Ejecución y vista final](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#ejecuci%C3%B3n-y-vista-final)
 
 ---
 
@@ -38,7 +38,7 @@ Para este proyecto vamos a usar una estructura como la siguiente:
     <img src="../Imágenes/LAMP en Docker/Estructura.png"/>
 </div>
 
-Dentro de esta veremos una __carpeta conf__, con la configuración necesaria, una __carpeta dumb__, que contendrá la información de nuestra base de datos, la __carpeta www__, que contiene la información sobre nuestra web, el fichero __Dockerfile__ de nuestro apache con php y el fichero __docker-compose.yml__ con la información de nuestro despliegue como ficheros principales. Hablando en detalle:
+Dentro de esta veremos una __carpeta conf__, con la configuración necesaria, una __carpeta dump__, que contendrá la información de nuestra base de datos, la __carpeta www__, que contiene la información sobre nuestra web, el fichero __Dockerfile__ de nuestro apache con php y el fichero __docker-compose.yml__ con la información de nuestro despliegue como ficheros principales. Hablando en detalle:
 
 La carpeta __carpeta dumb__ contendrá el fichero __dbname.sql__ que contendrá:
 
@@ -104,7 +104,7 @@ La carpeta __carpeta www__ contendrá el fichero __index.php__ que contendrá:
 </html>
 ```
 
-Elfichero __Dockerfile__ tendrá:
+El fichero __Dockerfile__ tendrá:
 
 ```
 FROM php:8.0.0-apache
