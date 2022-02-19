@@ -10,7 +10,7 @@
 
 - [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#introducci%C3%B3n)
 - [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#requisitos)
-- [Creación proyecto ](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#creaci%C3%B3n-proyecto)
+- [Creación del proyecto](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#creaci%C3%B3n-del-proyecto)
 - [Ejecución y vista final](https://github.com/RubenGonz/Despliegues/blob/main/Docker/LAMP%20en%20Docker.md#ejecuci%C3%B3n-y-vista-final)
 
 ---
@@ -30,7 +30,7 @@ Para este ejercicio haremos uso de las herramientas:
 
 ---
 
-## Creación proyecto 
+## Creación del proyecto 
 
 Para este proyecto vamos a usar una estructura como la siguiente:
 
@@ -127,7 +127,7 @@ services:
     www:
         build: .
         ports:
-            - "5000:80"
+            - "80:80"
         volumes:
             - ./www:/var/www/html
         links:
@@ -141,7 +141,7 @@ services:
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_DATABASE: dbname
-            MYSQL_USER: root
+            MYSQL_USER: ruben
             MYSQL_PASSWORD: test
             MYSQL_ROOT_PASSWORD: test
         volumes:
@@ -155,9 +155,9 @@ services:
         links:
             - db:db
         ports:
-            - 5001:80
+            - 5000:80
         environment:
-            MYSQL_USER: root
+            MYSQL_USER: ruben
             MYSQL_PASSWORD: test
             MYSQL_ROOT_PASSWORD: test
 volumes:
@@ -176,13 +176,13 @@ sudo docker-compose up -d
 
 Ahora si vamos a los puertos indicados deberíamos ver salidas como la siguiente:
 
-- http://localhost:5000/
+- http://localhost/index.php
 
 <div align="center">
     <img src="../Imágenes/LAMP en Docker/Web.png"/>
 </div>
 
-- http://localhost:5001/
+- http://localhost:5000/
 
 <div align="center">
     <img src="../Imágenes/LAMP en Docker/Php.png"/>
