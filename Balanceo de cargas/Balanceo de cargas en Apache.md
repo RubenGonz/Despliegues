@@ -9,7 +9,7 @@
 - [Introducción](https://github.com/RubenGonz/Despliegues/blob/main/Balanceo%20de%20cargas/Balanceo%20de%20cargas%20en%20Apache.md#introducci%C3%B3n)
 - [Proxy inverso](https://github.com/RubenGonz/Despliegues/blob/main/Balanceo%20de%20cargas/Balanceo%20de%20cargas%20en%20Apache.md#proxy-inverso)
 - [Requisitos](https://github.com/RubenGonz/Despliegues/blob/main/Balanceo%20de%20cargas/Balanceo%20de%20cargas%20en%20Apache.md#requisitos)
-- [Modulos](https://github.com/RubenGonz/Despliegues/blob/main/Balanceo%20de%20cargas/Balanceo%20de%20cargas%20en%20Apache.md#modulos)
+- [Módulos](https://github.com/RubenGonz/Despliegues/blob/main/Balanceo%20de%20cargas/Balanceo%20de%20cargas%20en%20Apache.md#modulos)
 - [Docker-compose](https://github.com/RubenGonz/Despliegues/blob/main/Balanceo%20de%20cargas/Balanceo%20de%20cargas%20en%20Apache.md#docker-compose)
 - [Configurar Apache](https://github.com/RubenGonz/Despliegues/blob/main/Balanceo%20de%20cargas/Balanceo%20de%20cargas%20en%20Apache.md#configurar-apache)
 - [Desplegar Docker-compose](https://github.com/RubenGonz/Despliegues/blob/main/Balanceo%20de%20cargas/Balanceo%20de%20cargas%20en%20Apache.md#desplegar-docker-compose)
@@ -18,9 +18,9 @@
 
 ## Introducción
 
-En esta ocación lo que haremos será instalar y configurar una aplicación web sobre Apache que contará con 4 nodos incorporados en Docker para trabajar con balanceo de cargas y por lo tanto tener una mayor seguridad de que el servicio no caiga.
+En esta ocasión lo que haremos será instalar y configurar una aplicación web sobre Apache que contará con 4 nodos incorporados en Docker para trabajar con balanceo de cargas y por lo tanto tener una mayor seguridad de que el servicio no caiga.
 
-Para ello haremos uso de un proxy inverso que redijirá el tráfico de la aplicación en los distintos nodos que tengamos implantados, en nuestro caso 4. 
+Para ello haremos uso de un proxy inverso que redirigirá  el tráfico de la aplicación en los distintos nodos que tengamos implantados, en nuestro caso 4. 
 
 ---
 
@@ -28,7 +28,7 @@ Para ello haremos uso de un proxy inverso que redijirá el tráfico de la aplica
 
 El proxy inverso o servidor de paso se basa en una implantación que se hace añadiendo a la ecuación un servidor, en nuestro caso este servidor será Apache, esto se hace para que este nuevo servidor sea el encargado de la administración del tráfico de la web y centralice las autorizaciones entre otras.
 
-El funcionamiento del proxy inverso que crearemos a continuación se basará en que las solicitudes mandadas por el cliente no llegarán directamente a los servidores backend, que son nuestros servidores principales y donde se encuentra toda la lógica de la aplicación, sino que se la mandará a un servidor intermedio que decidirá a cual de los distintos servidores backend mandar la solicitud repartiendo así el trabajo y aumentando la carga asumible del servidor a medida que se añaden más nodos.
+El funcionamiento del proxy inverso que crearemos a continuación se basará en que las solicitudes mandadas por el cliente no llegarán directamente a los servidores backend, que son nuestros servidores principales y donde se encuentra toda la lógica de la aplicación, sino que se la mandará a un servidor intermedio que decidirá a cuál de los distintos servidores backend mandar la solicitud repartiendo así el trabajo y aumentando la carga asumible del servidor a medida que se añaden más nodos.
 
 ---
 
@@ -43,9 +43,9 @@ Para esta configuración haremos uso del proyecto encontrado en:
 
 ---
 
-## Modulos
+## Módulos
 
-Lo primero que haremos para poder aplicar un balanceador de cargas es cargar nuestros modulos.
+Lo primero que haremos para poder aplicar un balanceador de cargas es cargar nuestros módulos.
 
 - proxy
 - proxy_http
@@ -78,11 +78,15 @@ Nos faltaría reiniciar nuestro apache con:
 sudo systemctl restart apache2.service
 ```
 
+<div align="center">
+    <img src="../Imágenes/Balanceo de cargas en Apache/Restart.png"/>
+</div>
+
 ---
 
 ## Docker-compose
 
-Nuestro proyecto tendrá la estructura del proyecto base y lo que haremos será cambiar nuestro docker-compose dejandolo de la siguiente manera:
+Nuestro proyecto tendrá la estructura del proyecto base y lo que haremos será cambiar nuestro docker-compose dejándolo de la siguiente manera:
 
 ```
 version: '3.5'
@@ -179,7 +183,7 @@ sudo systemctl reload apache2
 
 ## Desplegar Docker-compose
 
-Ahora si desplegaremos nuestra aplicación con:
+Ahora si desplegamos nuestra aplicación con:
 
 ```console
 sudo docker-compose up -d
